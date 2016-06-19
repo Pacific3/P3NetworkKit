@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */; };
 		DFAE163D1D170B350044B280 /* P3NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DFAE163C1D170B350044B280 /* P3NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
 		DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16461D170C9B0044B280 /* P3UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointConvertible.swift; sourceTree = "<group>"; };
 		DFAE16391D170B350044B280 /* P3NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P3NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAE163C1D170B350044B280 /* P3NetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P3NetworkKit.h; sourceTree = "<group>"; };
 		DFAE163E1D170B350044B280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +35,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF00CE351D170D45003C6E7E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		DFAE162F1D170B350044B280 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +65,7 @@
 			children = (
 				DFAE163C1D170B350044B280 /* P3NetworkKit.h */,
 				DFAE163E1D170B350044B280 /* Info.plist */,
+				DF00CE351D170D45003C6E7E /* Protocols */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -113,6 +124,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 3BVQ3MVDQR;
 						DevelopmentTeamName = "OSCAR  CISNEROS LARIOS";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -149,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +266,7 @@
 		DFAE16421D170B350044B280 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -267,6 +281,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.Pacific3.P3NetworkKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -274,6 +289,7 @@
 		DFAE16431D170B350044B280 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -311,6 +327,7 @@
 				DFAE16431D170B350044B280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <P3Foundation/P3Foundation.h>
+#import <P3UIKit/P3UIKit.h>
 
 //! Project version number for P3NetworkKit.
 FOUNDATION_EXPORT double P3NetworkKitVersionNumber;
