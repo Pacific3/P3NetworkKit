@@ -50,9 +50,3 @@ extension EndpointConvertible {
 }
 
 public struct NullEndpoint: EndpointConvertible { }
-
-public enum EndpointType {
-    case Simple
-    case Composed
-}
-
