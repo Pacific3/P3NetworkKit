@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		DFAE163D1D170B350044B280 /* P3NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DFAE163C1D170B350044B280 /* P3NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
+		DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16461D170C9B0044B280 /* P3UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DFAE16391D170B350044B280 /* P3NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P3NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAE163C1D170B350044B280 /* P3NetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P3NetworkKit.h; sourceTree = "<group>"; };
 		DFAE163E1D170B350044B280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFAE16451D170C9B0044B280 /* P3Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3Foundation.framework; path = Carthage/Build/iOS/P3Foundation.framework; sourceTree = "<group>"; };
+		DFAE16461D170C9B0044B280 /* P3UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3UIKit.framework; path = Carthage/Build/iOS/P3UIKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +25,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */,
+				DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +38,7 @@
 			children = (
 				DFAE163B1D170B350044B280 /* P3NetworkKit */,
 				DFAE163A1D170B350044B280 /* Products */,
+				DFAE16441D170C9B0044B280 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,6 +57,15 @@
 				DFAE163E1D170B350044B280 /* Info.plist */,
 			);
 			path = P3NetworkKit;
+			sourceTree = "<group>";
+		};
+		DFAE16441D170C9B0044B280 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFAE16451D170C9B0044B280 /* P3Foundation.framework */,
+				DFAE16461D170C9B0044B280 /* P3UIKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +257,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = P3NetworkKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -258,6 +278,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = P3NetworkKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
