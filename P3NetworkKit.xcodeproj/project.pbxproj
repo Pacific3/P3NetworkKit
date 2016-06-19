@@ -36,7 +36,7 @@
 		DFAE162F1D170B350044B280 = {
 			isa = PBXGroup;
 			children = (
-				DFAE163B1D170B350044B280 /* P3NetworkKit */,
+				DFAE163B1D170B350044B280 /* Sources */,
 				DFAE163A1D170B350044B280 /* Products */,
 				DFAE16441D170C9B0044B280 /* Frameworks */,
 			);
@@ -50,13 +50,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DFAE163B1D170B350044B280 /* P3NetworkKit */ = {
+		DFAE163B1D170B350044B280 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				DFAE163C1D170B350044B280 /* P3NetworkKit.h */,
 				DFAE163E1D170B350044B280 /* Info.plist */,
 			);
-			path = P3NetworkKit;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		DFAE16441D170C9B0044B280 /* Frameworks */ = {
@@ -261,7 +261,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = P3NetworkKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.Pacific3.P3NetworkKit;
@@ -282,7 +282,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = P3NetworkKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.Pacific3.P3NetworkKit;
