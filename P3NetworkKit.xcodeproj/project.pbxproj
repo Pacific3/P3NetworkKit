@@ -10,6 +10,8 @@
 		DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */; };
 		DF60C07F1D17140D00842E21 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C07E1D17140D00842E21 /* EndpointType.swift */; };
 		DF60C0811D17145500842E21 /* JSONParselable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0801D17145500842E21 /* JSONParselable.swift */; };
+		DF60C0841D17155900842E21 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0831D17155900842E21 /* UIImageView.swift */; };
+		DF60C0871D1718A400842E21 /* P3URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */; };
 		DFAE163D1D170B350044B280 /* P3NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DFAE163C1D170B350044B280 /* P3NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
 		DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16461D170C9B0044B280 /* P3UIKit.framework */; };
@@ -19,6 +21,8 @@
 		DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointConvertible.swift; sourceTree = "<group>"; };
 		DF60C07E1D17140D00842E21 /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		DF60C0801D17145500842E21 /* JSONParselable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParselable.swift; sourceTree = "<group>"; };
+		DF60C0831D17155900842E21 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3URLSessionTaskOperation.swift; sourceTree = "<group>"; };
 		DFAE16391D170B350044B280 /* P3NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P3NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAE163C1D170B350044B280 /* P3NetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P3NetworkKit.h; sourceTree = "<group>"; };
 		DFAE163E1D170B350044B280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +52,22 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		DF60C0821D17154A00842E21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DF60C0831D17155900842E21 /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DF60C0851D17189200842E21 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		DFAE162F1D170B350044B280 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +91,8 @@
 				DFAE163C1D170B350044B280 /* P3NetworkKit.h */,
 				DFAE163E1D170B350044B280 /* Info.plist */,
 				DF60C07E1D17140D00842E21 /* EndpointType.swift */,
+				DF60C0851D17189200842E21 /* Operations */,
+				DF60C0821D17154A00842E21 /* Extensions */,
 				DF00CE351D170D45003C6E7E /* Protocols */,
 			);
 			path = Sources;
@@ -167,9 +189,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF60C0841D17155900842E21 /* UIImageView.swift in Sources */,
 				DF60C07F1D17140D00842E21 /* EndpointType.swift in Sources */,
 				DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */,
 				DF60C0811D17145500842E21 /* JSONParselable.swift in Sources */,
+				DF60C0871D1718A400842E21 /* P3URLSessionTaskOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
