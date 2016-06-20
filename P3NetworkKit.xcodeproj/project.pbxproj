@@ -22,6 +22,7 @@
 		DFAE163D1D170B350044B280 /* P3NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DFAE163C1D170B350044B280 /* P3NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
 		DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16461D170C9B0044B280 /* P3UIKit.framework */; };
+		DFCEC6BB1D18B0DC0086F125 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCEC6BA1D18B0DC0086F125 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DFAE163E1D170B350044B280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFAE16451D170C9B0044B280 /* P3Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3Foundation.framework; path = Carthage/Build/iOS/P3Foundation.framework; sourceTree = "<group>"; };
 		DFAE16461D170C9B0044B280 /* P3UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3UIKit.framework; path = Carthage/Build/iOS/P3UIKit.framework; sourceTree = "<group>"; };
+		DFCEC6BA1D18B0DC0086F125 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFCEC6BB1D18B0DC0086F125 /* CoreLocation.framework in Frameworks */,
 				DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */,
 				DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */,
 			);
@@ -130,6 +133,7 @@
 		DFAE16441D170C9B0044B280 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DFCEC6BA1D18B0DC0086F125 /* CoreLocation.framework */,
 				DFAE16451D170C9B0044B280 /* P3Foundation.framework */,
 				DFAE16461D170C9B0044B280 /* P3UIKit.framework */,
 			);
