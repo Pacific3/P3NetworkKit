@@ -14,6 +14,7 @@
 		DF60C0871D1718A400842E21 /* P3URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */; };
 		DF60C08A1D17224500842E21 /* P3ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0891D17224500842E21 /* P3ReachabilityCondition.swift */; };
 		DF60C08C1D17244500842E21 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C08B1D17244500842E21 /* HTTPMethod.swift */; };
+		DF60C08E1D17253600842E21 /* P3NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C08D1D17253600842E21 /* P3NetworkOperation.swift */; };
 		DFAE163D1D170B350044B280 /* P3NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DFAE163C1D170B350044B280 /* P3NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
 		DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16461D170C9B0044B280 /* P3UIKit.framework */; };
@@ -27,6 +28,7 @@
 		DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3URLSessionTaskOperation.swift; sourceTree = "<group>"; };
 		DF60C0891D17224500842E21 /* P3ReachabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3ReachabilityCondition.swift; sourceTree = "<group>"; };
 		DF60C08B1D17244500842E21 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		DF60C08D1D17253600842E21 /* P3NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3NetworkOperation.swift; sourceTree = "<group>"; };
 		DFAE16391D170B350044B280 /* P3NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P3NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAE163C1D170B350044B280 /* P3NetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P3NetworkKit.h; sourceTree = "<group>"; };
 		DFAE163E1D170B350044B280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */,
+				DF60C08D1D17253600842E21 /* P3NetworkOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF60C0841D17155900842E21 /* UIImageView.swift in Sources */,
+				DF60C08E1D17253600842E21 /* P3NetworkOperation.swift in Sources */,
 				DF60C07F1D17140D00842E21 /* EndpointType.swift in Sources */,
 				DF60C08C1D17244500842E21 /* HTTPMethod.swift in Sources */,
 				DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */,

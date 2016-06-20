@@ -49,4 +49,13 @@ extension EndpointConvertible {
     }
 }
 
-public struct NullEndpoint: EndpointConvertible { }
+public struct NullEndpoint: EndpointConvertible, Hashable {
+    let identifier = "_kP3NullEndpointInstance"
+    public var hashValue: Int {
+        return identifier.hashValue
+    }
+}
+
+public func ==(lhs: NullEndpoint, rhs: NullEndpoint) -> Bool {
+    return lhs.hashValue == rhs.hashValue
+}
