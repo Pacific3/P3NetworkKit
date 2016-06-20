@@ -22,9 +22,6 @@ public class P3NetworkOperation: P3GroupOperation {
     
     
     // MARK: - Private Properties
-    private let __error: ErrorClosure?
-    private let __completion: CompletionClosure?
-    
     private var operationType: OperationType
     
     private var composedEndpointURL: URL? {
@@ -90,8 +87,6 @@ public class P3NetworkOperation: P3GroupOperation {
         ) {
         self.cacheFile       = cacheFile
         self.url             = url
-        __error              = nil
-        __completion         = nil
         downloadedJSON       = nil
         networkTaskOperation = nil
         
@@ -112,15 +107,9 @@ public class P3NetworkOperation: P3GroupOperation {
         name = "DownloadJSONOperation<\(self.dynamicType)>"
     }
     
-    public init?(
-        url: URL? = nil,
-        completion: (([String:AnyObject]?) -> Void)?,
-        error: ((NSError) -> Void)?
-        ) {
+    public init?(url: URL? = nil) {
         self.url             = url
         cacheFile            = nil
-        __error              = error
-        __completion         = completion
         networkTaskOperation = nil
         downloadedJSON       = nil
         
@@ -224,7 +213,6 @@ extension P3NetworkOperation {
         error: NSError?
         ) {
         if let error = error {
-            __error?(error)
             finishWithError(error: error)
             
             return
@@ -245,10 +233,8 @@ extension P3NetworkOperation {
         
         do {
             let json = try JSONSerialization.jsonObject(with: newJsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
-            __completion?(json)
             self.downloadedJSON = json
         } catch let error as NSError {
-            __error?(error)
             finishWithError(error: error)
             
             return
