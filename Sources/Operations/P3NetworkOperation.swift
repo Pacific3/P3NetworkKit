@@ -307,9 +307,7 @@ extension P3NetworkOperation {
         return nil
     }
     
-    private func prepareNetworkTaskOperation(
-        networkTaskOperation: P3URLSessionTaskOperation
-        ) -> P3URLSessionTaskOperation {
+    private func prepareNetworkTaskOperation(networkTaskOperation: P3URLSessionTaskOperation) -> P3URLSessionTaskOperation {
         if let url = networkTaskOperation.task.originalRequest?.url {
             let reachabilityCondition = P3ReachabilityCondition(host: url)
             networkTaskOperation.addCondition(condition: reachabilityCondition)
