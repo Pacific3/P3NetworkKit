@@ -41,11 +41,8 @@ public class P3NetworkOperation: P3GroupOperation {
     
     // MARK: - Public Properties/Overridables
     public var url: URL?
-    
     public var networkTaskOperation: P3URLSessionTaskOperation?
-    
     public var downloadedJSON: [String:AnyObject]?
-    
     public let cacheFile: URL?
     
     public var downloadConfiguration: DownloadConfiguration {
