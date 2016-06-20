@@ -23,11 +23,19 @@ public class P3NetworkOperation: P3GroupOperation {
     private var operationType: OperationType
     
     private var composedEndpointURL: URL? {
+        if let _ = self.composedEndpoint.0 as? NullEndpoint {
+            fatalError("Trying to initialize a network operation with a Null endpoint. Override the .composedEmpoint property on your subclass")
+        }
+        
         let (endpoint, params) = self.composedEndpoint
         return endpoint.generateURL(params: params)
     }
     
     private var simpleEndpointURL: URL? {
+        if let _ = self.simpleEndpoint as? NullEndpoint {
+            fatalError("Trying to initialize a network operation with a Null endpoint. Override the .simpleEndpoint property on your subclass")
+        }
+        
         return simpleEndpoint.generateURL()
     }
     
