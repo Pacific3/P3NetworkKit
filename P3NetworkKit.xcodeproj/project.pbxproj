@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */; };
+		DF0979AC1D18978400963A24 /* P3GetCurrentLocationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AB1D18978400963A24 /* P3GetCurrentLocationOperation.swift */; };
 		DF60C07F1D17140D00842E21 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C07E1D17140D00842E21 /* EndpointType.swift */; };
 		DF60C0811D17145500842E21 /* JSONParselable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0801D17145500842E21 /* JSONParselable.swift */; };
 		DF60C0841D17155900842E21 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0831D17155900842E21 /* UIImageView.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointConvertible.swift; sourceTree = "<group>"; };
+		DF0979AB1D18978400963A24 /* P3GetCurrentLocationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3GetCurrentLocationOperation.swift; sourceTree = "<group>"; };
 		DF60C07E1D17140D00842E21 /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		DF60C0801D17145500842E21 /* JSONParselable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParselable.swift; sourceTree = "<group>"; };
 		DF60C0831D17155900842E21 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */,
 				DF60C08D1D17253600842E21 /* P3NetworkOperation.swift */,
+				DF0979AB1D18978400963A24 /* P3GetCurrentLocationOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */,
 				DF60C0811D17145500842E21 /* JSONParselable.swift in Sources */,
 				DF60C0871D1718A400842E21 /* P3URLSessionTaskOperation.swift in Sources */,
+				DF0979AC1D18978400963A24 /* P3GetCurrentLocationOperation.swift in Sources */,
 				DF60C08A1D17224500842E21 /* P3ReachabilityCondition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
