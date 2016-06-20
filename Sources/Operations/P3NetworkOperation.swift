@@ -16,7 +16,7 @@ public class P3NetworkOperation: P3GroupOperation {
     typealias CompletionClosure = (([String:AnyObject]?) -> Void)
     
     private enum OperationType {
-        case Data
+        case GetData
         case Download
     }
     
@@ -124,7 +124,7 @@ public class P3NetworkOperation: P3GroupOperation {
         networkTaskOperation = nil
         downloadedJSON       = nil
         
-        operationType = .Data
+        operationType = .GetData
         
         super.init(operations: [])
         
@@ -152,10 +152,9 @@ public class P3NetworkOperation: P3GroupOperation {
         case .Download:
             networkTaskOperation = getDownloadTaskOperationWithRequest(request: request)
             
-        case .Data:
+        case .GetData:
             networkTaskOperation = getDataTaskOperationWithRequest(request: request)
         }
-        
         
         if let op = networkTaskOperation {
             addOperation(operation: op)
