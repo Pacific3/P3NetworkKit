@@ -12,8 +12,6 @@ private let urlSession = URLSession(
 
 public class P3NetworkOperation: P3GroupOperation {
     // MARK: - Private Support Types
-    typealias ErrorClosure = ((NSError) -> Void)
-    typealias CompletionClosure = (([String:AnyObject]?) -> Void)
     
     private enum OperationType {
         case GetData
