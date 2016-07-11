@@ -17,5 +17,5 @@ DerivedData
 *.xcscmblueprint
 .DS_Store
 Carthage.pkg
-Carthage/Build/
+Carthage/
 *.zip
