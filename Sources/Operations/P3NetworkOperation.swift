@@ -7,7 +7,7 @@
 //
 
 private let urlSession = URLSession(
-    configuration: URLSessionConfiguration.ephemeral()
+    configuration: URLSessionConfiguration.ephemeral
 )
 
 public class P3NetworkOperation: P3GroupOperation {
@@ -255,11 +255,11 @@ extension P3NetworkOperation {
         
         if let localUrl = url {
             do {
-                try FileManager.default().removeItem(at: cacheFile)
+                try FileManager.default.removeItem(at: cacheFile)
             } catch { }
             
             do {
-                try FileManager.default().moveItem(
+                try FileManager.default.moveItem(
                     at: localUrl,
                     to: cacheFile
                 )

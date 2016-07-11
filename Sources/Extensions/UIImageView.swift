@@ -36,7 +36,7 @@ private class ImageCache: Cache<AnyObject, AnyObject>, ImageCaching {
 }
 
 private var OperationAssociatedObjectKey: UInt8 = 0
-private let session = URLSession(configuration: URLSessionConfiguration.ephemeral())
+private let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
 private let operationQueue = P3OperationQueue()
 
 public extension UIImageView {
@@ -118,7 +118,7 @@ public extension UIImageView {
     
     private func postNotification() {
         p3_executeOnMainThread {
-            NotificationCenter.default().post(
+            NotificationCenter.default.post(
                 name: NSNotification.Name(
                     rawValue: kP3NKDidFinishSettingImageFromURLToImageView
                 ),

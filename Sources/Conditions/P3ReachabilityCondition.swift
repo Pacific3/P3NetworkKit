@@ -19,7 +19,7 @@ public struct P3ReachabilityCondition: P3OperationCondition {
         self.host = host
     }
     
-    public func dependencyForOperation(operation: Operation) -> Operation? {
+    public func dependencyForOperation(operation: P3Operation) -> Operation? {
         return nil
     }
 

@@ -25,7 +25,7 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
         self.usage = usage
     }
     
-    public func dependencyForOperation(operation: Operation) -> Operation? {
+    public func dependencyForOperation(operation: P3Operation) -> Operation? {
         return P3RequestLocationPermissionOperation(usage: usage)
     }
     
@@ -98,7 +98,7 @@ private class P3RequestLocationPermissionOperation: P3Operation {
             manager?.requestAlwaysAuthorization()
         }
         
-        assert(Bundle.main().objectForInfoDictionaryKey(key) != nil, "Requesting location permition requires the \(key) in the Info.plist file!")
+        assert(Bundle.main.objectForInfoDictionaryKey(key) != nil, "Requesting location permition requires the \(key) in the Info.plist file!")
     }
 }
 
