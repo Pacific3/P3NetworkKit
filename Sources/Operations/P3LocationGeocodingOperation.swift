@@ -38,7 +38,7 @@ public class P3LocationGeocodingOperation: P3GroupOperation {
     
     public init(searchTerm: String, completion: P3GeocodingCompletion) {
         geocodeOperation = _GeocodeOperation(searchTerm: searchTerm, completion: completion)
-        geocodeOperation.addObserver(observer: NetworkActivityObserver())
+        geocodeOperation.addObserver(observer: P3NetworkActivityObserver())
         
         super.init(operations: [geocodeOperation])
         name = "Geocode Operation"
