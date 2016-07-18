@@ -49,7 +49,7 @@ public class P3GetCurrentLocationOperation: P3Operation, CLLocationManagerDelega
     }
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last where location.horizontalAccuracy <= accuracy else {
+        guard let location = locations.last, location.horizontalAccuracy <= accuracy else {
             return
         }
         

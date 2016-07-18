@@ -22,7 +22,7 @@ private class _GeocodeOperation: P3Operation {
     
     override func execute() {
         geoCoder.geocodeAddressString(searchTerm) { placemarks, error in
-            guard let placemarks = placemarks where error != nil else {
+            guard let placemarks = placemarks, error != nil else {
                 self.finishWithError(error: error)
                 return
             }

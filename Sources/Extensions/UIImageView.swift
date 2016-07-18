@@ -66,8 +66,8 @@ public extension UIImageView {
                 p3_executeOnMainThread {
                     guard
                         let strongSelf = self,
-                        data = data,
-                        serializedImage = UIImage(data: data)
+                        let data = data,
+                        let serializedImage = UIImage(data: data)
                         else {
                             return
                     }
