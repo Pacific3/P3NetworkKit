@@ -313,7 +313,7 @@ extension P3NetworkOperation {
             networkTaskOperation.addCondition(condition: reachabilityCondition)
         }
         
-        let networkObserver = NetworkActivityObserver()
+        let networkObserver = P3NetworkActivityObserver()
         networkTaskOperation.addObserver(observer: networkObserver)
         
         return networkTaskOperation

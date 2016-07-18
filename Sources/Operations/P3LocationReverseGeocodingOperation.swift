@@ -38,7 +38,7 @@ public class ReverseGeocodeOperation: P3GroupOperation {
     
     public init(location: CLLocation, completion: P3ReverseGeocodingCompletion) {
         geocodeOperation = _ReverseGeocodeOperation(location: location, completion: completion)
-        geocodeOperation.addObserver(observer: NetworkActivityObserver())
+        geocodeOperation.addObserver(observer: P3NetworkActivityObserver())
         
         super.init(operations: [geocodeOperation])
         name = "Reverse Geocode Operation"
