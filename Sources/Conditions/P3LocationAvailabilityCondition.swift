@@ -98,7 +98,7 @@ private class P3RequestLocationPermissionOperation: P3Operation {
             manager?.requestAlwaysAuthorization()
         }
         
-        assert(Bundle.main.objectForInfoDictionaryKey(key) != nil, "Requesting location permition requires the \(key) in the Info.plist file!")
+        assert(Bundle.main.object(forInfoDictionaryKey: key) != nil, "Requesting location permition requires the \(key) in the Info.plist file!")
     }
 }
 

@@ -14,7 +14,7 @@ public class P3URLSessionTaskOperation: P3Operation {
     public let task: URLSessionTask
     
     private var observerRemoved = false
-    private var stateLock = Lock()
+    private var stateLock = NSLock()
     
     public init(task: URLSessionTask) {
         assert(task.state == .suspended, "Task must be suspended.")

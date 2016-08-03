@@ -17,7 +17,7 @@ public protocol ImageCaching {
     func cache(image: UIImage, for request: NSURLRequest)
 }
 
-private class ImageCache: Cache<AnyObject, AnyObject>, ImageCaching {
+private class ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
     private func cache(image: UIImage, for request: NSURLRequest) {
         setObject(image, forKey: imageCacheKey(request: request))
     }

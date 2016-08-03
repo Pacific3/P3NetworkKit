@@ -46,9 +46,7 @@ private class ReachabilityController {
     static var reachabilityRefs = [String: SCNetworkReachability]()
     
     static let reachabilityQueue = DispatchQueue(
-        label: "P3NetworkKit.Reachabilty",
-        attributes: DispatchQueueAttributes.serial,
-        target: nil
+        label: "P3NetworkKit.Reachability"
     )
     
     static func requestReachability(url: NSURL, completionHandler: (Bool) -> Void) {

@@ -58,7 +58,7 @@ public class P3GetCurrentLocationOperation: P3Operation, CLLocationManagerDelega
         finish()
     }
     
-    public func locationManager(_ manager: CLLocationManager, didFailWithError error: NSError) {
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         stopLocationUpdates()
         finishWithError(error: error)
     }

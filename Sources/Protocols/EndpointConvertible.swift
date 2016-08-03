@@ -31,12 +31,7 @@ extension EndpointConvertible {
                 return nil
         }
         
-        do {
-            try url.appendPathComponent(path)
-        } catch {
-            return nil
-        }
-        
+        url.appendPathComponent(path)
         return url
     }
     
