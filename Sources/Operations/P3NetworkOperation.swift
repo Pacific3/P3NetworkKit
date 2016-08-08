@@ -10,13 +10,15 @@ private let urlSession = URLSession(
     configuration: URLSessionConfiguration.ephemeral
 )
 
-public class P3NetworkOperation: P3GroupOperation {
+public class P3NetworkOperation: P3Operation {
     // MARK: - Private Support Types
     
     private enum OperationType {
         case GetData
         case Download
     }
+    
+    private let internalQueue = P3OperationQueue()
     
     
     // MARK: - Private Properties
@@ -95,7 +97,7 @@ public class P3NetworkOperation: P3GroupOperation {
         
         operationType = .Download
         
-        super.init(operations: [])
+        super.init()
         
         if downloadConfiguration != .DownloadAndSaveToURL {
             fatalError(
@@ -118,7 +120,7 @@ public class P3NetworkOperation: P3GroupOperation {
         
         operationType = .GetData
         
-        super.init(operations: [])
+        super.init()
         
         if downloadConfiguration != .DownloadAndReturnToParseManually {
             fatalError(
@@ -134,8 +136,6 @@ public class P3NetworkOperation: P3GroupOperation {
     }
     
     public override func execute() {
-        defer { super.execute() }
-        
         guard let request = buildRequest() else {
             return
         }
@@ -149,7 +149,7 @@ public class P3NetworkOperation: P3GroupOperation {
         }
         
         if let op = networkTaskOperation {
-            addOperation(operation: op)
+            internalQueue.addOperation(op)
         }
     }
     
@@ -245,6 +245,7 @@ extension P3NetworkOperation {
             let json = try JSONSerialization.jsonObject(with: newJsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
             self.downloadedJSON = json
             jsonDownloadComplete()
+            finish()
         } catch let error as NSError {
             finishWithError(error: error)
             
@@ -273,11 +274,11 @@ extension P3NetworkOperation {
                 )
             } catch let error as NSError {
                 print("error moving file!: \(error)")
-                aggregateError(error: error)
+                finishWithError(error: error)
             }
         } else if let error = error {
             print("error downloading data!: \(error)")
-            aggregateError(error: error)
+            finishWithError(error: error)
         } else {}
     }
     
