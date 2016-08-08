@@ -150,8 +150,15 @@ public class P3NetworkOperation: P3GroupOperation {
         
         if let op = networkTaskOperation {
             addOperation(operation: op)
-            addOperation(operation: Operation())
         }
+    }
+    
+    public func jsonDownloadComplete() {
+        
+    }
+    
+    public func downloadToURLComplete() {
+        
     }
 }
 
@@ -237,6 +244,7 @@ extension P3NetworkOperation {
         do {
             let json = try JSONSerialization.jsonObject(with: newJsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
             self.downloadedJSON = json
+            jsonDownloadComplete()
         } catch let error as NSError {
             finishWithError(error: error)
             
