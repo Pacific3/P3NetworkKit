@@ -95,7 +95,11 @@ private class P3RequestLocationPermissionOperation: P3Operation {
             
         case .Always:
             key = "NSlocationAlwaysUsageDescription"
-            manager?.requestAlwaysAuthorization()
+            #if os(iOS)
+                manager?.requestAlwaysAuthorization()
+            #else
+                fatalError("You can't request always on tvOS.")
+            #endif
         }
         
         assert(Bundle.main.object(forInfoDictionaryKey: key) != nil, "Requesting location permition requires the \(key) in the Info.plist file!")

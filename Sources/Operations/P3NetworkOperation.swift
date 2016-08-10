@@ -322,8 +322,10 @@ extension P3NetworkOperation {
             networkTaskOperation.addCondition(condition: reachabilityCondition)
         }
         
+        #if os(iOS)
         let networkObserver = P3NetworkActivityObserver()
         networkTaskOperation.addObserver(observer: networkObserver)
+        #endif
         
         return networkTaskOperation
     }
