@@ -90,7 +90,9 @@ public extension UIImageView {
             }
             
             imageRequestOperation = P3URLSessionTaskOperation(task: task)
-            imageRequestOperation?.addObserver(observer: P3NetworkActivityObserver())
+            #if os(iOS)
+                imageRequestOperation?.addObserver(observer: P3NetworkActivityObserver())
+            #endif
             operationQueue.addOperation(imageRequestOperation!)
         }
     }
