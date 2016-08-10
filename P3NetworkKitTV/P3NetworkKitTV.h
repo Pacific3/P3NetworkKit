@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import <P3FoundationTV/P3FoundationTV.h>
+#import <P3UIKitTV/P3UIKitTV.h>
+
 //! Project version number for P3NetworkKitTV.
 FOUNDATION_EXPORT double P3NetworkKitTVVersionNumber;
 
