@@ -15,7 +15,7 @@ public class P3GetCurrentLocationOperation: P3Operation, CLLocationManagerDelega
     private var manager: CLLocationManager?
     private let handler: (CLLocation) -> Void
     
-    public init(accuracy: CLLocationAccuracy, locationHandler: (CLLocation) -> Void) {
+    public init(accuracy: CLLocationAccuracy, locationHandler: @escaping (CLLocation) -> Void) {
         self.accuracy = accuracy
         self.handler = locationHandler
         
@@ -65,6 +65,6 @@ public class P3GetCurrentLocationOperation: P3Operation, CLLocationManagerDelega
     
     public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         stopLocationUpdates()
-        finishWithError(error: error)
+        finishWithError(error: error as NSError?)
     }
 }

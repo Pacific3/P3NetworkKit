@@ -18,11 +18,11 @@ public protocol ImageCaching {
 }
 
 private class ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
-    private func cache(image: UIImage, for request: NSURLRequest) {
-        setObject(image, forKey: imageCacheKey(request: request))
+    fileprivate func cache(image: UIImage, for request: NSURLRequest) {
+        setObject(image, forKey: imageCacheKey(request: request) as AnyObject)
     }
     
-    private func cachedImage(request: NSURLRequest) -> UIImage? {
+    fileprivate func cachedImage(request: NSURLRequest) -> UIImage? {
         switch request.cachePolicy {
         case .reloadIgnoringLocalCacheData, .reloadIgnoringLocalAndRemoteCacheData:
             return nil
@@ -31,7 +31,7 @@ private class ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
             break
         }
         
-        return object(forKey: imageCacheKey(request: request)) as? UIImage
+        return object(forKey: imageCacheKey(request: request) as AnyObject) as? UIImage
     }
 }
 
@@ -53,7 +53,7 @@ public extension UIImageView {
     }
     
     private func p3_setImage(request: URLRequest, placeholder: UIImage?) {
-        if let cachedImage = UIImageView.p3_sharedImageCache.cachedImage(request: request) {
+        if let cachedImage = UIImageView.p3_sharedImageCache.cachedImage(request: request as NSURLRequest) {
             image = cachedImage
             imageRequestOperation = nil
             postNotification()
@@ -85,7 +85,7 @@ public extension UIImageView {
                         }
                     )
                     
-                    UIImageView.p3_sharedImageCache.cache(image: serializedImage, for: request)
+                    UIImageView.p3_sharedImageCache.cache(image: serializedImage, for: request as NSURLRequest)
                 }
             }
             

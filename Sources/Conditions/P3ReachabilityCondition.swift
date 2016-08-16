@@ -23,16 +23,16 @@ public struct P3ReachabilityCondition: P3OperationCondition {
         return nil
     }
 
-    public func evaluateForOperation(operation: Operation, completion: (P3OperationCompletionResult) -> Void) {
-        ReachabilityController.requestReachability(url: host) { reachable in
+    public func evaluateForOperation(operation: Operation, completion: @escaping (P3OperationCompletionResult) -> Void) {
+        ReachabilityController.requestReachability(url: host as NSURL) { reachable in
             if reachable {
                 completion(.Satisfied)
             } else {
                 let error = NSError(error: P3ErrorSpecification(
                     ec: P3OperationError.ConditionFailed),
                                     userInfo: [
-                                        P3OperationConditionKey: self.dynamicType.name,
-                                        self.dynamicType.hostKey: self.host
+                                        P3OperationConditionKey as NSString: type(of: self).name as AnyObject,
+                                        type(of: self).hostKey as NSString: self.host as AnyObject
                     ]
                 )
                 
@@ -49,7 +49,7 @@ private class ReachabilityController {
         label: "P3NetworkKit.Reachability"
     )
     
-    static func requestReachability(url: NSURL, completionHandler: (Bool) -> Void) {
+    static func requestReachability(url: NSURL, completionHandler: @escaping (Bool) -> Void) {
         if let host = url.host {
             reachabilityQueue.async {
                 var ref = self.reachabilityRefs[host]

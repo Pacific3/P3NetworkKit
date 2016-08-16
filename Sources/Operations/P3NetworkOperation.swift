@@ -10,21 +10,21 @@ private let urlSession = URLSession(
     configuration: URLSessionConfiguration.ephemeral
 )
 
-public class P3NetworkOperation: P3Operation {
+open class P3NetworkOperation: P3Operation {
     // MARK: - Private Support Types
     
-    private enum OperationType {
+    fileprivate enum OperationType {
         case GetData
         case Download
     }
     
-    private let internalQueue = P3OperationQueue()
+    fileprivate let internalQueue = P3OperationQueue()
     
     
     // MARK: - Private Properties
-    private var operationType: OperationType
+    fileprivate var operationType: OperationType
     
-    private var composedEndpointURL: URL? {
+    fileprivate var composedEndpointURL: URL? {
         if let _ = self.composedEndpoint.0 as? NullEndpoint {
             fatalError("Trying to initialize a network operation with a Null endpoint. Override the .composedEmpoint property on your subclass")
         }
@@ -33,7 +33,7 @@ public class P3NetworkOperation: P3Operation {
         return endpoint.generateURL(params: params)
     }
     
-    private var simpleEndpointURL: URL? {
+    fileprivate var simpleEndpointURL: URL? {
         if let _ = self.simpleEndpoint as? NullEndpoint {
             fatalError("Trying to initialize a network operation with a Null endpoint. Override the .simpleEndpoint property on your subclass")
         }
@@ -55,31 +55,31 @@ public class P3NetworkOperation: P3Operation {
     public var downloadedJSON: [String:AnyObject]?
     public let cacheFile: URL?
     
-    public var downloadConfiguration: DownloadConfiguration {
+    open var downloadConfiguration: DownloadConfiguration {
         return .DownloadAndReturnToParseManually
     }
     
-    public var endpointType: EndpointType {
+    open var endpointType: EndpointType {
         return .Simple
     }
     
-    public var simpleEndpoint: EndpointConvertible {
+    open var simpleEndpoint: EndpointConvertible {
         return NullEndpoint()
     }
     
-    public var composedEndpoint: (EndpointConvertible, [String:String]) {
+    open var composedEndpoint: (EndpointConvertible, [String:String]) {
         return (NullEndpoint(), ["":""])
     }
     
-    public var method: HTTPMethod {
+    open var method: HTTPMethod {
         return .GET
     }
     
-    public var headerParams: [String:String]? {
+    open var headerParams: [String:String]? {
         return nil
     }
     
-    public var requestBody: [String:AnyObject]? {
+    open var requestBody: [String:AnyObject]? {
         return nil
     }
     
@@ -109,7 +109,7 @@ public class P3NetworkOperation: P3Operation {
             return nil
         }
         
-        name = "DownloadJSONOperation<\(self.dynamicType)>"
+        name = "DownloadJSONOperation<\(type(of: self))>"
     }
     
     public init?(url: URL? = nil) {
@@ -132,17 +132,17 @@ public class P3NetworkOperation: P3Operation {
             return nil
         }
         
-        name = "DownloadJSONOperation<\(self.dynamicType)>"
+        name = "DownloadJSONOperation<\(type(of: self))>"
     }
     
-    public override func execute() {
+    open override func execute() {
         guard let request = buildRequest() else {
             return
         }
         
         switch operationType {
         case .Download:
-            networkTaskOperation = getDownloadTaskOperationWithRequest(request: request)
+            networkTaskOperation = getDownloadTaskOperationWithRequest(request: (request as NSURLRequest) as URLRequest)
             
         case .GetData:
             networkTaskOperation = getDataTaskOperationWithRequest(request: request)
@@ -165,7 +165,7 @@ public class P3NetworkOperation: P3Operation {
 
 // MARK: - Private Methods
 extension P3NetworkOperation {
-    private func buildRequest() -> URLRequest? {
+    fileprivate func buildRequest() -> URLRequest? {
         guard let url = getURL() else {
             return nil
         }
@@ -183,27 +183,27 @@ extension P3NetworkOperation {
         return request
     }
     
-    private func getDataTaskOperationWithRequest(
+    fileprivate func getDataTaskOperationWithRequest(
         request: URLRequest
         ) -> P3URLSessionTaskOperation {
-        let task = urlSession.dataTask(with: request) {
-            data, response, error in
+        let task = urlSession.dataTask(with: request, completionHandler: { (data, response, error) in
             self.dataRequestFinishedWithData(
                 data: data,
                 response: response,
                 error: error
             )
-        }
+        })
+        
         
         let networkTaskOperation = P3URLSessionTaskOperation(task: task)
         
         return prepareNetworkTaskOperation(networkTaskOperation: networkTaskOperation)
     }
     
-    private func getDownloadTaskOperationWithRequest(
-        request: NSURLRequest
+    fileprivate func getDownloadTaskOperationWithRequest(
+        request: URLRequest
         ) -> P3URLSessionTaskOperation {
-        let task = urlSession.downloadTask(with: request as URLRequest) {
+        let task = urlSession.downloadTask(with: request) {
             url, response, error in
             self.downloadRequestFinishedWithUrl(
                 url: url,
@@ -217,13 +217,13 @@ extension P3NetworkOperation {
         return prepareNetworkTaskOperation(networkTaskOperation: networkTaskOperation)
     }
     
-    private func dataRequestFinishedWithData(
+    fileprivate func dataRequestFinishedWithData(
         data: Data?,
         response: URLResponse?,
-        error: NSError?
+        error: Error?
         ) {
         if let error = error {
-            finishWithError(error: error)
+            finishWithError(error: error as NSError)
             
             return
         }
@@ -253,10 +253,10 @@ extension P3NetworkOperation {
         }
     }
     
-    private func downloadRequestFinishedWithUrl(
+    fileprivate func downloadRequestFinishedWithUrl(
         url: URL?,
         response: URLResponse?,
-        error: NSError?
+        error: Error?
         ) {
         guard let cacheFile = cacheFile else {
             return
@@ -278,11 +278,11 @@ extension P3NetworkOperation {
             }
         } else if let error = error {
             print("error downloading data!: \(error)")
-            finishWithError(error: error)
+            finishWithError(error: error as NSError)
         } else {}
     }
     
-    private func getURL() -> URL? {
+    fileprivate func getURL() -> URL? {
         var _url: URL?
         
         if let defaultURL = url {
@@ -300,7 +300,7 @@ extension P3NetworkOperation {
         return _url
     }
     
-    private func getRequestBodyData() -> Data? {
+    fileprivate func getRequestBodyData() -> Data? {
         if let requestBody = requestBody {
             do {
                 let requestData = try JSONSerialization.data(

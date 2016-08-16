@@ -12,8 +12,8 @@
 		DF0979AE1D18996100963A24 /* P3LocationGeocodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AD1D18996100963A24 /* P3LocationGeocodingOperation.swift */; };
 		DF0979B01D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AF1D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift */; };
 		DF3DEADF1D5B96EE0029D70B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3DEADE1D5B96EE0029D70B /* CoreLocation.framework */; };
-		DF3DEAE21D5B96F90029D70B /* P3FoundationTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3DEAE01D5B96F90029D70B /* P3FoundationTV.framework */; };
 		DF3DEAE31D5B96F90029D70B /* P3UIKitTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3DEAE11D5B96F90029D70B /* P3UIKitTV.framework */; };
+		DF5684EB1D63712D00231B00 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
 		DF60C07F1D17140D00842E21 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C07E1D17140D00842E21 /* EndpointType.swift */; };
 		DF60C0811D17145500842E21 /* JSONParselable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0801D17145500842E21 /* JSONParselable.swift */; };
 		DF60C0841D17155900842E21 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0831D17155900842E21 /* UIImageView.swift */; };
@@ -47,7 +47,6 @@
 		DF0979AD1D18996100963A24 /* P3LocationGeocodingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3LocationGeocodingOperation.swift; sourceTree = "<group>"; };
 		DF0979AF1D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3LocationReverseGeocodingOperation.swift; sourceTree = "<group>"; };
 		DF3DEADE1D5B96EE0029D70B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
-		DF3DEAE01D5B96F90029D70B /* P3FoundationTV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3FoundationTV.framework; path = Carthage/Build/tvOS/P3FoundationTV.framework; sourceTree = "<group>"; };
 		DF3DEAE11D5B96F90029D70B /* P3UIKitTV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3UIKitTV.framework; path = Carthage/Build/tvOS/P3UIKitTV.framework; sourceTree = "<group>"; };
 		DF60C07E1D17140D00842E21 /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		DF60C0801D17145500842E21 /* JSONParselable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParselable.swift; sourceTree = "<group>"; };
@@ -83,8 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF5684EB1D63712D00231B00 /* P3Foundation.framework in Frameworks */,
 				DF3DEADF1D5B96EE0029D70B /* CoreLocation.framework in Frameworks */,
-				DF3DEAE21D5B96F90029D70B /* P3FoundationTV.framework in Frameworks */,
 				DF3DEAE31D5B96F90029D70B /* P3UIKitTV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,7 +166,6 @@
 		DFAE16441D170C9B0044B280 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DF3DEAE01D5B96F90029D70B /* P3FoundationTV.framework */,
 				DF3DEAE11D5B96F90029D70B /* P3UIKitTV.framework */,
 				DF3DEADE1D5B96EE0029D70B /* CoreLocation.framework */,
 				DFCEC6BA1D18B0DC0086F125 /* CoreLocation.framework */,
@@ -498,6 +496,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = P3NetworkKitTV/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -526,6 +525,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = P3NetworkKitTV/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

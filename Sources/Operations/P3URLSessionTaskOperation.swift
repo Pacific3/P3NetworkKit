@@ -38,26 +38,48 @@ public class P3URLSessionTaskOperation: P3Operation {
         task.resume()
     }
     
-    public override func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutablePointer<Void>?) {
-        guard context == &P3URLSessionTaskOperationContext else { return }
+    
+
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let object = object as? URLSessionTask, context == &P3URLSessionTaskOperationContext else { return }
         
-        stateLock.withCriticalScope(
-            block: {
-                if object === task && keyPath == "state" && !observerRemoved {
-                    switch task.state {
-                    case .completed:
-                        finish()
-                        fallthrough
-                        
-                    case .canceling, .completed:
-                        observerRemoved = true
-                        task.removeObserver(self, forKeyPath: #keyPath(URLSessionTask.state))
-                        
-                    default: return
-                    }
+        stateLock.withCriticalScope {
+            if object === task && keyPath == "state" && !observerRemoved {
+                switch task.state {
+                case .completed:
+                    finish()
+                    fallthrough
+                    
+                case .canceling, .completed:
+                    observerRemoved = true
+                    task.removeObserver(self, forKeyPath: #keyPath(URLSessionTask.state))
+                    
+                default: return
                 }
             }
-        )
+        }
     }
+    
+//    open override func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutablePointer<Void>?) {
+//        guard context == &P3URLSessionTaskOperationContext else { return }
+//        
+//        stateLock.withCriticalScope(
+//            block: {
+//                if object === task && keyPath == "state" && !observerRemoved {
+//                    switch task.state {
+//                    case .completed:
+//                        finish()
+//                        fallthrough
+//                        
+//                    case .canceling, .completed:
+//                        observerRemoved = true
+//                        task.removeObserver(self, forKeyPath: #keyPath(URLSessionTask.state))
+//                        
+//                    default: return
+//                    }
+//                }
+//            }
+//        )
+//    }
 }
 

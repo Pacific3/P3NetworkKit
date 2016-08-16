@@ -30,7 +30,7 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
     }
     
     
-    public func evaluateForOperation(operation: Operation, completion: (P3OperationCompletionResult) -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: @escaping (P3OperationCompletionResult) -> Void) {
         let enabled = CLLocationManager.locationServicesEnabled()
         let actual = CLLocationManager.authorizationStatus()
         
@@ -45,9 +45,9 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
             
         default:
             error = NSError(error: P3ErrorSpecification(ec: P3OperationError.ConditionFailed), userInfo: [
-                P3OperationConditionKey: self.dynamicType.name,
-                self.dynamicType.locationServicesEnabledKey: enabled,
-                self.dynamicType.authorizationStatusKey: Int(actual.rawValue)
+                P3OperationConditionKey as NSString: type(of: self).name as AnyObject,
+                type(of: self).locationServicesEnabledKey as NSString: enabled as AnyObject,
+                type(of: self).authorizationStatusKey as NSString: Int(actual.rawValue) as AnyObject
                 ])
         }
         
@@ -107,7 +107,7 @@ private class P3RequestLocationPermissionOperation: P3Operation {
 }
 
 extension P3RequestLocationPermissionOperation: CLLocationManagerDelegate {
-    private func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    fileprivate func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if manager == self.manager && isExecuting && status != .notDetermined {
             finish()
         }
