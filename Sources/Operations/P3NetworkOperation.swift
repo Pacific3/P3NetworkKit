@@ -79,7 +79,7 @@ open class P3NetworkOperation: P3Operation {
         return nil
     }
     
-    open var requestBody: [String:AnyObject]? {
+    open var requestBody: [String:Any]? {
         return nil
     }
     
@@ -153,11 +153,11 @@ open class P3NetworkOperation: P3Operation {
         }
     }
     
-    public func jsonDownloadComplete() {
+    open func jsonDownloadComplete() {
         
     }
     
-    public func downloadToURLComplete() {
+    open func downloadToURLComplete() {
         
     }
 }
