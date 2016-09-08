@@ -15,7 +15,7 @@ private class _ReverseGeocodeOperation: P3Operation {
     private var completion: P3ReverseGeocodingCompletion
     private var locationToGeocode: CLLocation
     
-    init(location: CLLocation, completion: P3ReverseGeocodingCompletion) {
+    init(location: CLLocation, completion: @escaping P3ReverseGeocodingCompletion) {
         locationToGeocode = location
         self.completion = completion
     }
@@ -36,7 +36,7 @@ private class _ReverseGeocodeOperation: P3Operation {
 public class ReverseGeocodeOperation: P3GroupOperation {
     private let geocodeOperation: _ReverseGeocodeOperation
     
-    public init(location: CLLocation, completion: P3ReverseGeocodingCompletion) {
+    public init(location: CLLocation, completion: @escaping P3ReverseGeocodingCompletion) {
         geocodeOperation = _ReverseGeocodeOperation(location: location, completion: completion)
         #if os(iOS)
             geocodeOperation.addObserver(observer: P3NetworkActivityObserver())

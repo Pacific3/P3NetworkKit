@@ -15,7 +15,7 @@ private class _GeocodeOperation: P3Operation {
     private var searchTerm: String
     private var completion: P3GeocodingCompletion
     
-    init(searchTerm: String, completion: P3GeocodingCompletion) {
+    init(searchTerm: String, completion: @escaping P3GeocodingCompletion) {
         self.searchTerm = searchTerm
         self.completion = completion
     }
@@ -36,7 +36,7 @@ private class _GeocodeOperation: P3Operation {
 public class P3LocationGeocodingOperation: P3GroupOperation {
     private let geocodeOperation: _GeocodeOperation
     
-    public init(searchTerm: String, completion: P3GeocodingCompletion) {
+    public init(searchTerm: String, completion: @escaping P3GeocodingCompletion) {
         geocodeOperation = _GeocodeOperation(searchTerm: searchTerm, completion: completion)
         #if os(iOS)
             geocodeOperation.addObserver(observer: P3NetworkActivityObserver())
