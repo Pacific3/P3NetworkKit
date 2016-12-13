@@ -71,7 +71,7 @@ private class P3RequestLocationPermissionOperation: P3Operation {
         addCondition(condition: AlertPresentation())
     }
     
-    private override func execute() {
+    fileprivate override func execute() {
         switch (CLLocationManager.authorizationStatus(), usage) {
         case (.notDetermined, _), (.authorizedWhenInUse, .Always):
             p3_executeOnMainThread {
