@@ -7,11 +7,11 @@
 //
 
 public protocol JSONParselable {
-    static func with(json: [String:AnyObject]) -> Self?
+    static func with(json: [String:Any]) -> Self?
 }
 
 public struct NullParselable: JSONParselable {
-    public static func with(json: [String : AnyObject]) -> NullParselable? {
+    public static func with(json: [String : Any]) -> NullParselable? {
         return nil
     }
 }
