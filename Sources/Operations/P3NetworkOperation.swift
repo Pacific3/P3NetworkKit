@@ -44,8 +44,8 @@ open class P3NetworkOperation: P3Operation {
     
     // MARK: -  Public Support Types
     public enum DownloadConfiguration {
-        case DownloadAndSaveToURL
-        case DownloadAndReturnToParseManually
+        case downloadAndSaveToURL
+        case downloadAndReturnToParseManually
     }
     
     
@@ -56,7 +56,7 @@ open class P3NetworkOperation: P3Operation {
     public let cacheFile: URL?
     
     open var downloadConfiguration: DownloadConfiguration {
-        return .DownloadAndReturnToParseManually
+        return .downloadAndReturnToParseManually
     }
     
     open var endpointType: EndpointType {
@@ -99,11 +99,11 @@ open class P3NetworkOperation: P3Operation {
         
         super.init()
         
-        if downloadConfiguration != .DownloadAndSaveToURL {
+        if downloadConfiguration != .downloadAndSaveToURL {
             fatalError(
                 "Trying to initialize download operation" +
                     "with wrong configuration. It should be " +
-                    "\(DownloadConfiguration.DownloadAndSaveToURL) but is" +
+                    "\(DownloadConfiguration.downloadAndSaveToURL) but is" +
                     "\(downloadConfiguration)"
             )
             return nil
@@ -122,11 +122,11 @@ open class P3NetworkOperation: P3Operation {
         
         super.init()
         
-        if downloadConfiguration != .DownloadAndReturnToParseManually {
+        if downloadConfiguration != .downloadAndReturnToParseManually {
             fatalError(
                 "Trying to initialize download operation" +
                     "with wrong configuration. It should be " +
-                    "\(DownloadConfiguration.DownloadAndReturnToParseManually)" +
+                    "\(DownloadConfiguration.downloadAndReturnToParseManually)" +
                     "but is \(downloadConfiguration)"
             )
             return nil
@@ -334,10 +334,10 @@ extension P3NetworkOperation {
 extension P3NetworkOperation.DownloadConfiguration: CustomStringConvertible {
     public var description: String {
         switch self {
-        case .DownloadAndReturnToParseManually:
+        case .downloadAndReturnToParseManually:
             return ".DownloadAndReturnToParseManually"
             
-        case .DownloadAndSaveToURL:
+        case .downloadAndSaveToURL:
             return ".DownloadAndSaveToURL"
         }
     }
