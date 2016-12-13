@@ -71,8 +71,8 @@ open class P3NetworkOperation: P3Operation {
         return (NullEndpoint(), ["":""])
     }
     
-    open var method: HTTPMethod {
-        return .GET
+    open var method: P3HTTPMethod {
+        return .get
     }
     
     open var headerParams: [String:String]? {
