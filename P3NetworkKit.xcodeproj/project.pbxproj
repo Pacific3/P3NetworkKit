@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */; };
-		DF0979AC1D18978400963A24 /* P3GetCurrentLocationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AB1D18978400963A24 /* P3GetCurrentLocationOperation.swift */; };
-		DF0979AE1D18996100963A24 /* P3LocationGeocodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AD1D18996100963A24 /* P3LocationGeocodingOperation.swift */; };
-		DF0979B01D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AF1D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift */; };
 		DF3DEADF1D5B96EE0029D70B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3DEADE1D5B96EE0029D70B /* CoreLocation.framework */; };
 		DF3DEAE31D5B96F90029D70B /* P3UIKitTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3DEAE11D5B96F90029D70B /* P3UIKitTV.framework */; };
 		DF5684EB1D63712D00231B00 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
-		DF60C07F1D17140D00842E21 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C07E1D17140D00842E21 /* EndpointType.swift */; };
-		DF60C0811D17145500842E21 /* JSONParselable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0801D17145500842E21 /* JSONParselable.swift */; };
-		DF60C0841D17155900842E21 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0831D17155900842E21 /* UIImageView.swift */; };
-		DF60C0871D1718A400842E21 /* P3URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */; };
-		DF60C08A1D17224500842E21 /* P3ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0891D17224500842E21 /* P3ReachabilityCondition.swift */; };
-		DF60C08C1D17244500842E21 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C08B1D17244500842E21 /* HTTPMethod.swift */; };
-		DF60C08E1D17253600842E21 /* P3NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C08D1D17253600842E21 /* P3NetworkOperation.swift */; };
-		DF8694781D1894060026402B /* P3LocationAvailabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8694771D1894060026402B /* P3LocationAvailabilityCondition.swift */; };
+		DF8C3DDC1E00D14700EA9879 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C07E1D17140D00842E21 /* EndpointType.swift */; };
+		DF8C3DDD1E00D14700EA9879 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C08B1D17244500842E21 /* HTTPMethod.swift */; };
+		DF8C3DDE1E00D14700EA9879 /* P3ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0891D17224500842E21 /* P3ReachabilityCondition.swift */; };
+		DF8C3DDF1E00D14700EA9879 /* P3LocationAvailabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8694771D1894060026402B /* P3LocationAvailabilityCondition.swift */; };
+		DF8C3DE01E00D14700EA9879 /* P3URLSessionTaskOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */; };
+		DF8C3DE11E00D14700EA9879 /* P3NetworkOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C08D1D17253600842E21 /* P3NetworkOperation.swift */; };
+		DF8C3DE21E00D14700EA9879 /* P3GetCurrentLocationOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AB1D18978400963A24 /* P3GetCurrentLocationOperation.swift */; };
+		DF8C3DE31E00D14700EA9879 /* P3LocationGeocodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AD1D18996100963A24 /* P3LocationGeocodingOperation.swift */; };
+		DF8C3DE41E00D14700EA9879 /* P3LocationReverseGeocodingOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0979AF1D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift */; };
+		DF8C3DE51E00D14700EA9879 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0831D17155900842E21 /* UIImageView.swift */; };
+		DF8C3DE61E00D14700EA9879 /* EndpointConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */; };
+		DF8C3DE71E00D14700EA9879 /* JSONParselable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0801D17145500842E21 /* JSONParselable.swift */; };
 		DFAE163D1D170B350044B280 /* P3NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DFAE163C1D170B350044B280 /* P3NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
 		DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16461D170C9B0044B280 /* P3UIKit.framework */; };
@@ -305,18 +305,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF60C0841D17155900842E21 /* UIImageView.swift in Sources */,
-				DF60C08E1D17253600842E21 /* P3NetworkOperation.swift in Sources */,
-				DF60C07F1D17140D00842E21 /* EndpointType.swift in Sources */,
-				DF8694781D1894060026402B /* P3LocationAvailabilityCondition.swift in Sources */,
-				DF60C08C1D17244500842E21 /* HTTPMethod.swift in Sources */,
-				DF00CE371D170D77003C6E7E /* EndpointConvertible.swift in Sources */,
-				DF60C0811D17145500842E21 /* JSONParselable.swift in Sources */,
-				DF0979AE1D18996100963A24 /* P3LocationGeocodingOperation.swift in Sources */,
-				DF0979B01D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift in Sources */,
-				DF60C0871D1718A400842E21 /* P3URLSessionTaskOperation.swift in Sources */,
-				DF0979AC1D18978400963A24 /* P3GetCurrentLocationOperation.swift in Sources */,
-				DF60C08A1D17224500842E21 /* P3ReachabilityCondition.swift in Sources */,
+				DF8C3DDC1E00D14700EA9879 /* EndpointType.swift in Sources */,
+				DF8C3DDD1E00D14700EA9879 /* HTTPMethod.swift in Sources */,
+				DF8C3DDE1E00D14700EA9879 /* P3ReachabilityCondition.swift in Sources */,
+				DF8C3DDF1E00D14700EA9879 /* P3LocationAvailabilityCondition.swift in Sources */,
+				DF8C3DE01E00D14700EA9879 /* P3URLSessionTaskOperation.swift in Sources */,
+				DF8C3DE11E00D14700EA9879 /* P3NetworkOperation.swift in Sources */,
+				DF8C3DE21E00D14700EA9879 /* P3GetCurrentLocationOperation.swift in Sources */,
+				DF8C3DE31E00D14700EA9879 /* P3LocationGeocodingOperation.swift in Sources */,
+				DF8C3DE41E00D14700EA9879 /* P3LocationReverseGeocodingOperation.swift in Sources */,
+				DF8C3DE51E00D14700EA9879 /* UIImageView.swift in Sources */,
+				DF8C3DE61E00D14700EA9879 /* EndpointConvertible.swift in Sources */,
+				DF8C3DE71E00D14700EA9879 /* JSONParselable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
