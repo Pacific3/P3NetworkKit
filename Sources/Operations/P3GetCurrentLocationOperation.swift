@@ -10,12 +10,12 @@
 import CoreLocation
 
 public class P3GetCurrentLocationOperation: P3Operation, CLLocationManagerDelegate {
+    private let manager = CLLocationManager()
     
     private let accuracy: CLLocationAccuracy
-    private var manager: CLLocationManager?
     private let handler: (CLLocation) -> Void
     
-    public init(accuracy: CLLocationAccuracy, locationHandler: @escaping (CLLocation) -> Void) {
+    public init(accuracyInMeters accuracy: CLLocationAccuracy, locationHandler: @escaping (CLLocation) -> Void) {
         self.accuracy = accuracy
         self.handler = locationHandler
         
@@ -26,31 +26,23 @@ public class P3GetCurrentLocationOperation: P3Operation, CLLocationManagerDelega
     }
     
     public override func execute() {
-        p3_executeOnMainThread {
-            let manager = CLLocationManager()
-            manager.desiredAccuracy = self.accuracy
-            manager.delegate = self
-            
-            #if os(iOS)
-                manager.startUpdatingLocation()
-            #else
-                manager.requestLocation()
-            #endif
-            
-            self.manager = manager
-        }
+        manager.desiredAccuracy = self.accuracy
+        manager.delegate = self
+        
+        #if os(iOS)
+            manager.startUpdatingLocation()
+        #else
+            manager.requestLocation()
+        #endif
     }
     
     public override func cancel() {
-        p3_executeOnMainThread {
-            self.stopLocationUpdates()
-            super.cancel()
-        }
+        self.stopLocationUpdates()
+        super.cancel()
     }
     
     private func stopLocationUpdates() {
-        manager?.stopUpdatingLocation()
-        manager = nil
+        manager.stopUpdatingLocation()
     }
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
