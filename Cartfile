@@ -1,2 +1,2 @@
-github "Pacific3/P3Foundation" "master"
-github "Pacific3/P3UIKit" "master"
+github "Pacific3/P3Foundation" "swift_3.1"
+github "Pacific3/P3UIKit" "swift_3.1"
