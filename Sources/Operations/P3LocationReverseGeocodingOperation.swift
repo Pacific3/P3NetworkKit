@@ -33,7 +33,7 @@ private class _ReverseGeocodeOperation: P3Operation {
     }
 }
 
-public class ReverseGeocodeOperation: P3GroupOperation {
+public class P3LocationReverseGeocodingOperation: P3GroupOperation {
     private let geocodeOperation: _ReverseGeocodeOperation
     
     public init(location: CLLocation, completion: @escaping P3ReverseGeocodingCompletion) {
