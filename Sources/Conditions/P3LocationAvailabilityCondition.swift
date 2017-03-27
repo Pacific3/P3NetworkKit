@@ -10,8 +10,8 @@ import CoreLocation
 
 public struct P3LocationAvailabilityCondition: P3OperationCondition {
     public enum Usage {
-        case WhenInUse
-        case Always
+        case whenInUse
+        case always
     }
     
     static let locationServicesEnabledKey = "CLLocationServicesEnabled"
@@ -40,7 +40,7 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
         case (true, _, .authorizedAlways):
             break
             
-        case (true, .WhenInUse, .authorizedWhenInUse):
+        case (true, .whenInUse, .authorizedWhenInUse):
             break
             
         default:
@@ -73,7 +73,7 @@ private class P3RequestLocationPermissionOperation: P3Operation {
     
     fileprivate override func execute() {
         switch (CLLocationManager.authorizationStatus(), usage) {
-        case (.notDetermined, _), (.authorizedWhenInUse, .Always):
+        case (.notDetermined, _), (.authorizedWhenInUse, .always):
             p3_executeOnMainThread {
                 self.requestPermission()
             }
@@ -89,11 +89,11 @@ private class P3RequestLocationPermissionOperation: P3Operation {
         manager?.delegate = self
         let key: String
         switch usage {
-        case .WhenInUse:
+        case .whenInUse:
             key = "NSLocationWhenInUseUsageDescription"
             manager?.requestWhenInUseAuthorization()
             
-        case .Always:
+        case .always:
             key = "NSlocationAlwaysUsageDescription"
             #if os(iOS)
                 manager?.requestAlwaysAuthorization()

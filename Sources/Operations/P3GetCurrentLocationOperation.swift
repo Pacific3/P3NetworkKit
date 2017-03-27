@@ -15,13 +15,13 @@ public class P3GetCurrentLocationOperation: P3Operation, CLLocationManagerDelega
     private let accuracy: CLLocationAccuracy
     private let handler: (CLLocation) -> Void
     
-    public init(accuracyInMeters accuracy: CLLocationAccuracy, locationHandler: @escaping (CLLocation) -> Void) {
+    public init(accuracyInMeters accuracy: CLLocationAccuracy, usage: P3LocationAvailabilityCondition.Usage = .whenInUse, locationHandler: @escaping (CLLocation) -> Void) {
         self.accuracy = accuracy
         self.handler = locationHandler
         
         super.init()
         
-        addCondition(condition: P3LocationAvailabilityCondition(usage: .WhenInUse))
+        addCondition(condition: P3LocationAvailabilityCondition(usage: usage))
         addCondition(condition: P3MutuallyExclusiveOperationCondition<CLLocationManager>())
     }
     
