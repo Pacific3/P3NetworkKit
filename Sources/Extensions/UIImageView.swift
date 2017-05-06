@@ -40,7 +40,7 @@ public extension UIImageView {
                 image = placeholder
             }
             
-            downloadingOperationIdentifier = P3ImageCache.sharedImageCache.downloadImageWithURLToCache(url: url, cachedImage: { [weak self] image in
+            downloadingOperationIdentifier = P3ImageCache.sharedImageCache.downloadImageWithURLToCache(url: url, completion: { [weak self] image in
                 p3_executeOnMainThread {
                     self?.downloadingOperationIdentifier = nil
                     

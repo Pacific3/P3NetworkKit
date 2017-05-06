@@ -70,7 +70,7 @@ final public class P3ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
     }
     
     @discardableResult
-    public func downloadImageWithURLToCache(url: URL, cachedImage: ((UIImage?) -> Void)?) -> ImageCacheIdentifier {
+    public func downloadImageWithURLToCache(url: URL, completion: ((UIImage?) -> Void)?) -> ImageCacheIdentifier {
         let request = imageRequestForURL(url: url)
         let id = imageCacheKey(request: request)
         
@@ -81,12 +81,12 @@ final public class P3ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
                 let data = data,
                 let serializedImage = UIImage(data: data)
                 else {
-                    cachedImage?(nil)
+                    completion?(nil)
                     return
             }
             
             P3ImageCache.sharedImageCache.cache(image: serializedImage, for: request)
-            cachedImage?(serializedImage)
+            completion?(serializedImage)
         }
         
         let imageRequestOperation = P3URLSessionTaskOperation(task: task)
