@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DF3DEADF1D5B96EE0029D70B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3DEADE1D5B96EE0029D70B /* CoreLocation.framework */; };
 		DF3DEAE31D5B96F90029D70B /* P3UIKitTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3DEAE11D5B96F90029D70B /* P3UIKitTV.framework */; };
+		DF4F24981EBE7AE600AB8FA7 /* P3ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F24971EBE7AE600AB8FA7 /* P3ImageCache.swift */; };
+		DF4F24991EBE7AE600AB8FA7 /* P3ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F24971EBE7AE600AB8FA7 /* P3ImageCache.swift */; };
 		DF5684EB1D63712D00231B00 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
 		DF8C3DDC1E00D14700EA9879 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C07E1D17140D00842E21 /* EndpointType.swift */; };
 		DF8C3DDD1E00D14700EA9879 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C08B1D17244500842E21 /* HTTPMethod.swift */; };
@@ -48,6 +50,7 @@
 		DF0979AF1D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3LocationReverseGeocodingOperation.swift; sourceTree = "<group>"; };
 		DF3DEADE1D5B96EE0029D70B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 		DF3DEAE11D5B96F90029D70B /* P3UIKitTV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3UIKitTV.framework; path = Carthage/Build/tvOS/P3UIKitTV.framework; sourceTree = "<group>"; };
+		DF4F24971EBE7AE600AB8FA7 /* P3ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3ImageCache.swift; sourceTree = "<group>"; };
 		DF60C07E1D17140D00842E21 /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		DF60C0801D17145500842E21 /* JSONParselable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParselable.swift; sourceTree = "<group>"; };
 		DF60C0831D17155900842E21 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 				DFAE163E1D170B350044B280 /* Info.plist */,
 				DF60C07E1D17140D00842E21 /* EndpointType.swift */,
 				DF60C08B1D17244500842E21 /* HTTPMethod.swift */,
+				DF4F24971EBE7AE600AB8FA7 /* P3ImageCache.swift */,
 				DF60C0881D17223100842E21 /* Conditions */,
 				DF60C0851D17189200842E21 /* Operations */,
 				DF60C0821D17154A00842E21 /* Extensions */,
@@ -315,6 +319,7 @@
 				DF8C3DE41E00D14700EA9879 /* P3LocationReverseGeocodingOperation.swift in Sources */,
 				DF8C3DE51E00D14700EA9879 /* UIImageView.swift in Sources */,
 				DF8C3DE61E00D14700EA9879 /* EndpointConvertible.swift in Sources */,
+				DF4F24981EBE7AE600AB8FA7 /* P3ImageCache.swift in Sources */,
 				DF8C3DE71E00D14700EA9879 /* JSONParselable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +339,7 @@
 				DFF2A34B1D5B931F003493C6 /* P3LocationReverseGeocodingOperation.swift in Sources */,
 				DFF2A34C1D5B931F003493C6 /* UIImageView.swift in Sources */,
 				DFF2A34D1D5B931F003493C6 /* EndpointConvertible.swift in Sources */,
+				DF4F24991EBE7AE600AB8FA7 /* P3ImageCache.swift in Sources */,
 				DFF2A34E1D5B931F003493C6 /* JSONParselable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
