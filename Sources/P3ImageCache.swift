@@ -9,8 +9,8 @@
 public typealias ImageCacheIdentifier = String
 
 public protocol ImageCaching {
-    func cachedImage(request: URLRequest) -> UIImage?
-    func cache(image: UIImage, for request: URLRequest)
+    func cachedImage(request: URLRequest) -> P3Image?
+    func cache(image: P3Image, for request: URLRequest)
 }
 
 final public class P3ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
@@ -35,7 +35,7 @@ final public class P3ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
     
     
     // MARK: - Getting from cache
-    public func cachedImage(request: URLRequest) -> UIImage? {
+    public func cachedImage(request: URLRequest) -> P3Image? {
         switch request.cachePolicy {
         case .reloadIgnoringLocalCacheData, .reloadIgnoringLocalAndRemoteCacheData:
             return nil
@@ -47,30 +47,30 @@ final public class P3ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
         return cachedImage(id: imageCacheKey(request: request))
     }
     
-    public func cachedImage(url: URL) -> UIImage? {
+    public func cachedImage(url: URL) -> P3Image? {
         return cachedImage(id: imageCacheKey(url: url))
     }
     
-    private func cachedImage(id: ImageCacheIdentifier) -> UIImage? {
-        return object(forKey: id as AnyObject) as? UIImage
+    private func cachedImage(id: ImageCacheIdentifier) -> P3Image? {
+        return object(forKey: id as AnyObject) as? P3Image
     }
     
     
     // MARK: - Adding to cache
-    public func cache(image: UIImage, for request: URLRequest) {
+    public func cache(image: P3Image, for request: URLRequest) {
         setObject(image, forKey: imageCacheKey(request: request) as AnyObject)
     }
     
-    public func cache(image: UIImage, url: URL) {
+    public func cache(image: P3Image, url: URL) {
         setObject(image, forKey: imageCacheKey(url: url) as AnyObject)
     }
     
-    public func cache(image: UIImage, string: String) {
+    public func cache(image: P3Image, string: String) {
         setObject(image, forKey: string as AnyObject)
     }
     
     @discardableResult
-    public func downloadImageWithURLToCache(url: URL, completion: ((UIImage?) -> Void)?) -> ImageCacheIdentifier {
+    public func downloadImageWithURLToCache(url: URL, completion: ((P3Image?) -> Void)?) -> ImageCacheIdentifier {
         let request = imageRequestForURL(url: url)
         let id = imageCacheKey(request: request)
         
@@ -79,7 +79,7 @@ final public class P3ImageCache: NSCache<AnyObject, AnyObject>, ImageCaching {
             
             guard
                 let data = data,
-                let serializedImage = UIImage(data: data)
+                let serializedImage = P3Image(data: data)
                 else {
                     completion?(nil)
                     return

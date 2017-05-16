@@ -29,7 +29,7 @@ public class P3GetCurrentLocationOperation: P3Operation, CLLocationManagerDelega
         manager.desiredAccuracy = self.accuracy
         manager.delegate = self
         
-        #if os(iOS)
+        #if os(iOS) || os(macOS)
             manager.startUpdatingLocation()
         #else
             manager.requestLocation()

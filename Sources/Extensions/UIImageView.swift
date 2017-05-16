@@ -9,7 +9,7 @@
 public let kP3NKDidFinishSettingImageFromURLToImageView = "kP3NKDidFinishSettingImageFromURLToImageView"
 private var CacheIdentifierObjectKey: UInt8 = 0
 
-public extension UIImageView {
+public extension P3ImageView {
     private var downloadingOperationIdentifier: ImageCacheIdentifier? {
         get {
             return objc_getAssociatedObject(self, &CacheIdentifierObjectKey) as? ImageCacheIdentifier
@@ -31,7 +31,7 @@ public extension UIImageView {
         p3_setImage(url: url, placeholder: nil)
     }
     
-    public func p3_setImage(url: URL, placeholder: UIImage?) {
+    public func p3_setImage(url: URL, placeholder: P3Image?) {
         if let cachedImage = P3ImageCache.sharedImageCache.cachedImage(url: url) {
             image = cachedImage
             postNotification()
@@ -49,17 +49,22 @@ public extension UIImageView {
                         let image = image
                         else { return }
                     
-                    UIView.transition(
-                        with: strongSelf,
-                        duration: 0.3,
-                        options: .transitionCrossDissolve,
-                        animations: {
-                            strongSelf.image = image
-                    }, completion: { (finished) in
-                        if finished {
-                            strongSelf.postNotification()
-                        }
-                    })
+                    #if os(iOS) || os(tvOS)
+                        P3View.transition(
+                            with: strongSelf,
+                            duration: 0.3,
+                            options: .transitionCrossDissolve,
+                            animations: {
+                                strongSelf.image = image
+                        }, completion: { (finished) in
+                            if finished {
+                                strongSelf.postNotification()
+                            }
+                        })
+                    #else
+                        strongSelf.image = image
+                        strongSelf.postNotification()
+                    #endif
                 }
             })
         }

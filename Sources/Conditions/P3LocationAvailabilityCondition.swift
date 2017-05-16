@@ -68,7 +68,9 @@ private class P3RequestLocationPermissionOperation: P3Operation {
         
         super.init()
         
-        addCondition(condition: AlertPresentation())
+        #if os(iOS) || os(tvOS)
+            addCondition(condition: AlertPresentation())
+        #endif
     }
     
     fileprivate override func execute() {
@@ -87,29 +89,60 @@ private class P3RequestLocationPermissionOperation: P3Operation {
     private func requestPermission() {
         manager = CLLocationManager()
         manager?.delegate = self
-        let key: String
-        switch usage {
-        case .whenInUse:
-            key = "NSLocationWhenInUseUsageDescription"
-            manager?.requestWhenInUseAuthorization()
-            
-        case .always:
-            key = "NSlocationAlwaysUsageDescription"
-            #if os(iOS)
-                manager?.requestAlwaysAuthorization()
-            #else
-                fatalError("You can't request always on tvOS.")
-            #endif
-        }
         
-        assert(Bundle.main.object(forInfoDictionaryKey: key) != nil, "Requesting location permition requires the \(key) in the Info.plist file!")
+        #if os(iOS) || os(tvOS)
+            _requestPermissioniOS()
+        #else
+            _requestPermissionmacOS()
+        #endif
     }
 }
 
+#if os(macOS)
+    extension P3RequestLocationPermissionOperation {
+        func _requestPermissionmacOS() {
+            manager?.startUpdatingLocation()
+        }
+    }
+#endif
+
+#if os(iOS) || os(tvOS)
+    extension P3RequestLocationPermissionOperation {
+        func _requestPermissioniOS() {
+            let key: String
+            switch usage {
+            case .whenInUse:
+                key = "NSLocationWhenInUseUsageDescription"
+                manager?.requestWhenInUseAuthorization()
+                
+                
+            case .always:
+                key = "NSlocationAlwaysUsageDescription"
+                #if os(iOS)
+                    manager?.requestAlwaysAuthorization()
+                #else
+                    fatalError("You can't request always on tvOS.")
+                #endif
+            }
+            
+            assert(Bundle.main.object(forInfoDictionaryKey: key) != nil, "Requesting location permition requires the \(key) in the Info.plist file!")
+        }
+    }
+    
+#endif
+
 extension P3RequestLocationPermissionOperation: CLLocationManagerDelegate {
     fileprivate func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if manager == self.manager && isExecuting && status != .notDetermined {
-            finish()
-        }
+        #if os(iOS) || os(tvOS)
+            if manager == self.manager && isExecuting && status != .notDetermined {
+                finish()
+            }
+        #else
+            if manager == self.manager && status == .notDetermined {
+                // Force macOS to show the location permission dialog
+                manager.startUpdatingLocation()
+                manager.stopUpdatingLocation()
+            }
+        #endif
     }
 }
