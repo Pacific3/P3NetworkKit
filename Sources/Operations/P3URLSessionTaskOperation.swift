@@ -50,7 +50,7 @@ public class P3URLSessionTaskOperation: P3Operation {
                     finish()
                     fallthrough
                     
-                case .canceling, .completed:
+                case .canceling:
                     observerRemoved = true
                     task.removeObserver(self, forKeyPath: #keyPath(URLSessionTask.state))
                     
