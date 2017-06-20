@@ -14,8 +14,8 @@ open class P3NetworkOperation: P3Operation {
     // MARK: - Private Support Types
     
     fileprivate enum OperationType {
-        case GetData
-        case Download
+        case getData
+        case download
     }
     
     fileprivate let internalQueue = P3OperationQueue()
@@ -52,7 +52,8 @@ open class P3NetworkOperation: P3Operation {
     // MARK: - Public Properties/Overridables
     public var url: URL?
     public var networkTaskOperation: P3URLSessionTaskOperation?
-    public var downloadedJSON: [String:AnyObject]?
+    public var downloadedJSON: [String:Any]?
+    public var downloadedData: Data?
     public let cacheFile: URL?
     
     open var downloadConfiguration: DownloadConfiguration {
@@ -60,7 +61,7 @@ open class P3NetworkOperation: P3Operation {
     }
     
     open var endpointType: EndpointType {
-        return .Simple
+        return .simple
     }
     
     open var simpleEndpoint: EndpointConvertible {
@@ -95,7 +96,7 @@ open class P3NetworkOperation: P3Operation {
         downloadedJSON       = nil
         networkTaskOperation = nil
         
-        operationType = .Download
+        operationType = .download
         
         super.init()
         
@@ -118,7 +119,7 @@ open class P3NetworkOperation: P3Operation {
         networkTaskOperation = nil
         downloadedJSON       = nil
         
-        operationType = .GetData
+        operationType = .getData
         
         super.init()
         
@@ -141,10 +142,10 @@ open class P3NetworkOperation: P3Operation {
         }
         
         switch operationType {
-        case .Download:
+        case .download:
             networkTaskOperation = getDownloadTaskOperationWithRequest(request: (request as NSURLRequest) as URLRequest)
             
-        case .GetData:
+        case .getData:
             networkTaskOperation = getDataTaskOperationWithRequest(request: request)
         }
         
@@ -153,13 +154,11 @@ open class P3NetworkOperation: P3Operation {
         }
     }
     
-    open func jsonDownloadComplete() {
-        
-    }
+    open func didDownloadJSON(json: [String:Any]?) {}
     
-    open func downloadToURLComplete() {
-        
-    }
+    open func didDownloadFile(to url: URL?) {}
+    
+    open func didDownloadData(data: Data?) {}
 }
 
 
@@ -228,23 +227,22 @@ extension P3NetworkOperation {
             return
         }
         
-        guard let data = data else {
-            return
-        }
-        
-        guard let jsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue) else {
+        guard
+            let data = data,
+            let jsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue),
+            let newJsonData = "{\"result\":\(jsonString)}".data(using: String.Encoding.utf8)
+            else {
             finish()
             return
         }
         
-        let s = "{\"result\":\(jsonString)}"
-        
-        let newJsonData = (s as NSString).data(using: String.Encoding.utf8.rawValue)!
+        downloadedData = newJsonData
+        didDownloadData(data: newJsonData)
         
         do {
-            let json = try JSONSerialization.jsonObject(with: newJsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:AnyObject]
+            let json = try JSONSerialization.jsonObject(with: newJsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String:Any]
             self.downloadedJSON = json
-            jsonDownloadComplete()
+            self.didDownloadJSON(json: json)
             finish()
         } catch let error as NSError {
             finishWithError(error: error)
@@ -258,28 +256,29 @@ extension P3NetworkOperation {
         response: URLResponse?,
         error: Error?
         ) {
-        guard let cacheFile = cacheFile else {
-            return
+        guard
+            let cacheFile = cacheFile,
+            let localUrl = url
+            else {
+                if let error = error {
+                    print("error downloading data!: \(error)")
+                    finishWithError(error: error as NSError)
+                }
+                return
         }
         
-        if let localUrl = url {
-            do {
-                try FileManager.default.removeItem(at: cacheFile)
-            } catch { }
+        do {
+            try FileManager.default.removeItem(at: cacheFile)
+            try FileManager.default.moveItem(
+                at: localUrl,
+                to: cacheFile
+            )
             
-            do {
-                try FileManager.default.moveItem(
-                    at: localUrl,
-                    to: cacheFile
-                )
-            } catch let error as NSError {
-                print("error moving file!: \(error)")
-                finishWithError(error: error)
-            }
-        } else if let error = error {
-            print("error downloading data!: \(error)")
-            finishWithError(error: error as NSError)
-        } else {}
+            didDownloadFile(to: cacheFile)
+        } catch let error as NSError {
+            print("error moving file!: \(error)")
+            finishWithError(error: error)
+        }
     }
     
     fileprivate func getURL() -> URL? {
@@ -289,10 +288,10 @@ extension P3NetworkOperation {
             _url = defaultURL
         } else {
             switch endpointType {
-            case .Simple:
+            case .simple:
                 _url = simpleEndpointURL
                 
-            case .Composed:
+            case .composed:
                 _url = composedEndpointURL
             }
         }

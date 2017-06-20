@@ -7,7 +7,7 @@
 //
 
 public enum EndpointType {
-    case Simple
-    case Composed
+    case simple
+    case composed
 }
 

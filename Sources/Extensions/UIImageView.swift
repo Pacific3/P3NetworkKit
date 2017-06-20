@@ -27,11 +27,16 @@ public extension P3ImageView {
         downloadingOperationIdentifier = nil
     }
     
-    public func p3_setImageWithURL(url: URL) {
+    public func p3_setImageWithURL(url: URL?) {
         p3_setImage(url: url, placeholder: nil)
     }
     
-    public func p3_setImage(url: URL, placeholder: P3Image?) {
+    public func p3_setImage(url: URL?, placeholder: P3Image?) {
+        guard let url = url else {
+            image = placeholder
+            return
+        }
+        
         if let cachedImage = P3ImageCache.sharedImageCache.cachedImage(url: url) {
             image = cachedImage
             postNotification()
