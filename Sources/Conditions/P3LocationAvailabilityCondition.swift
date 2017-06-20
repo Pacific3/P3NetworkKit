@@ -15,7 +15,7 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
     }
     
     static let locationServicesEnabledKey = "CLLocationServicesEnabled"
-    static let authorizationStatusKey     = "CLAuthorizationSTatus"
+    static let authorizationStatusKey     = "CLAuthorizationStatus"
     public static var name                = "Location"
     public static var isMutuallyExclusive = false
     
@@ -28,7 +28,6 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
     public func dependencyForOperation(operation: P3Operation) -> Operation? {
         return P3RequestLocationPermissionOperation(usage: usage)
     }
-    
     
     public func evaluateForOperation(operation: Operation, completion: @escaping (P3OperationCompletionResult) -> Void) {
         let enabled = CLLocationManager.locationServicesEnabled()
@@ -115,9 +114,8 @@ private class P3RequestLocationPermissionOperation: P3Operation {
                 key = "NSLocationWhenInUseUsageDescription"
                 manager?.requestWhenInUseAuthorization()
                 
-                
             case .always:
-                key = "NSlocationAlwaysUsageDescription"
+                key = "NSLocationAlwaysAndWhenInUseUsageDescription"
                 #if os(iOS)
                     manager?.requestAlwaysAuthorization()
                 #else
@@ -125,7 +123,7 @@ private class P3RequestLocationPermissionOperation: P3Operation {
                 #endif
             }
             
-            assert(Bundle.main.object(forInfoDictionaryKey: key) != nil, "Requesting location permition requires the \(key) in the Info.plist file!")
+            assert(Bundle.main.object(forInfoDictionaryKey: key) != nil, "Requesting location permission requires the \(key) in the Info.plist file!")
         }
     }
     
