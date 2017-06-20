@@ -14,7 +14,7 @@ open class P3NetworkOperation: P3Operation {
     // MARK: - Private Support Types
     
     fileprivate enum OperationType {
-        case getData
+        case data
         case download
     }
     
@@ -119,7 +119,7 @@ open class P3NetworkOperation: P3Operation {
         networkTaskOperation = nil
         downloadedJSON       = nil
         
-        operationType = .getData
+        operationType = .data
         
         super.init()
         
@@ -145,7 +145,7 @@ open class P3NetworkOperation: P3Operation {
         case .download:
             networkTaskOperation = getDownloadTaskOperationWithRequest(request: (request as NSURLRequest) as URLRequest)
             
-        case .getData:
+        case .data:
             networkTaskOperation = getDataTaskOperationWithRequest(request: request)
         }
         
