@@ -6,7 +6,7 @@
 //  Copyright © 2017 Pacific3. All rights reserved.
 //
 
-public struct P3JSONResponseWrapper<T: Codable>: Codable {
+open class P3JSONResponseWrapper<T: Codable>: Codable {
     public enum Status: String, Codable {
         case success = "success"
         case error = "error"
