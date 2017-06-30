@@ -34,7 +34,10 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
     private var url: URL?
     
     public init(url: URL? = nil) {
+        self.url = url
         super.init()
+        
+        name = "\(type(of: self))"
     }
     
     open override func execute() {
