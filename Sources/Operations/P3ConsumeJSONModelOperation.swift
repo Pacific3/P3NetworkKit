@@ -25,7 +25,7 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
         return nil
     }
     
-    open var requestBody: [String:Any]? {
+    open var requestBody: [String:Encodable]? {
         return nil
     }
     
