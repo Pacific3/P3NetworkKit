@@ -26,7 +26,13 @@
 		DF53428A1ECBB8C400E83B55 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0831D17155900842E21 /* UIImageView.swift */; };
 		DF53428B1ECBB8C400E83B55 /* EndpointConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */; };
 		DF53428C1ECBB8C400E83B55 /* JSONParselable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0801D17145500842E21 /* JSONParselable.swift */; };
+		DF55E3461F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55E3451F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift */; };
+		DF55E3471F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55E3451F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift */; };
+		DF55E3481F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55E3451F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift */; };
 		DF5684EB1D63712D00231B00 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
+		DF784EFA1F05E560008578D0 /* P3JSONResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF784EF91F05E560008578D0 /* P3JSONResponseWrapper.swift */; };
+		DF784EFB1F05E560008578D0 /* P3JSONResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF784EF91F05E560008578D0 /* P3JSONResponseWrapper.swift */; };
+		DF784EFC1F05E560008578D0 /* P3JSONResponseWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF784EF91F05E560008578D0 /* P3JSONResponseWrapper.swift */; };
 		DF8C3DDC1E00D14700EA9879 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C07E1D17140D00842E21 /* EndpointType.swift */; };
 		DF8C3DDD1E00D14700EA9879 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C08B1D17244500842E21 /* HTTPMethod.swift */; };
 		DF8C3DDE1E00D14700EA9879 /* P3ReachabilityCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0891D17224500842E21 /* P3ReachabilityCondition.swift */; };
@@ -70,6 +76,7 @@
 		DF5342771ECBB88600E83B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF53427C1ECBB89E00E83B55 /* P3Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3Foundation.framework; path = Carthage/Build/Mac/P3Foundation.framework; sourceTree = "<group>"; };
 		DF53427D1ECBB89E00E83B55 /* P3UIKitMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = P3UIKitMac.framework; path = Carthage/Build/Mac/P3UIKitMac.framework; sourceTree = "<group>"; };
+		DF55E3451F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P3ConsumeJSONModelOperation.swift; sourceTree = "<group>"; };
 		DF60C07E1D17140D00842E21 /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		DF60C0801D17145500842E21 /* JSONParselable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParselable.swift; sourceTree = "<group>"; };
 		DF60C0831D17155900842E21 /* UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 		DF60C0891D17224500842E21 /* P3ReachabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3ReachabilityCondition.swift; sourceTree = "<group>"; };
 		DF60C08B1D17244500842E21 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		DF60C08D1D17253600842E21 /* P3NetworkOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3NetworkOperation.swift; sourceTree = "<group>"; };
+		DF784EF91F05E560008578D0 /* P3JSONResponseWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P3JSONResponseWrapper.swift; sourceTree = "<group>"; };
 		DF8694771D1894060026402B /* P3LocationAvailabilityCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3LocationAvailabilityCondition.swift; sourceTree = "<group>"; };
 		DFAE16391D170B350044B280 /* P3NetworkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = P3NetworkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAE163C1D170B350044B280 /* P3NetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = P3NetworkKit.h; sourceTree = "<group>"; };
@@ -152,6 +160,7 @@
 			children = (
 				DF60C0861D1718A400842E21 /* P3URLSessionTaskOperation.swift */,
 				DF60C08D1D17253600842E21 /* P3NetworkOperation.swift */,
+				DF55E3451F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift */,
 				DF0979AB1D18978400963A24 /* P3GetCurrentLocationOperation.swift */,
 				DF0979AD1D18996100963A24 /* P3LocationGeocodingOperation.swift */,
 				DF0979AF1D1899E300963A24 /* P3LocationReverseGeocodingOperation.swift */,
@@ -166,6 +175,14 @@
 				DF8694771D1894060026402B /* P3LocationAvailabilityCondition.swift */,
 			);
 			path = Conditions;
+			sourceTree = "<group>";
+		};
+		DF784EF81F05E537008578D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DF784EF91F05E560008578D0 /* P3JSONResponseWrapper.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DFAE162F1D170B350044B280 = {
@@ -197,6 +214,7 @@
 				DF60C07E1D17140D00842E21 /* EndpointType.swift */,
 				DF60C08B1D17244500842E21 /* HTTPMethod.swift */,
 				DF4F24971EBE7AE600AB8FA7 /* P3ImageCache.swift */,
+				DF784EF81F05E537008578D0 /* Models */,
 				DF60C0881D17223100842E21 /* Conditions */,
 				DF60C0851D17189200842E21 /* Operations */,
 				DF60C0821D17154A00842E21 /* Extensions */,
@@ -390,6 +408,8 @@
 				DF5342801ECBB8C400E83B55 /* EndpointType.swift in Sources */,
 				DF5342811ECBB8C400E83B55 /* HTTPMethod.swift in Sources */,
 				DF5342821ECBB8C400E83B55 /* P3ImageCache.swift in Sources */,
+				DF784EFC1F05E560008578D0 /* P3JSONResponseWrapper.swift in Sources */,
+				DF55E3481F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift in Sources */,
 				DF5342831ECBB8C400E83B55 /* P3ReachabilityCondition.swift in Sources */,
 				DF5342841ECBB8C400E83B55 /* P3LocationAvailabilityCondition.swift in Sources */,
 				DF5342851ECBB8C400E83B55 /* P3URLSessionTaskOperation.swift in Sources */,
@@ -410,6 +430,8 @@
 				DF8C3DDC1E00D14700EA9879 /* EndpointType.swift in Sources */,
 				DF8C3DDD1E00D14700EA9879 /* HTTPMethod.swift in Sources */,
 				DF8C3DDE1E00D14700EA9879 /* P3ReachabilityCondition.swift in Sources */,
+				DF784EFA1F05E560008578D0 /* P3JSONResponseWrapper.swift in Sources */,
+				DF55E3461F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift in Sources */,
 				DF8C3DDF1E00D14700EA9879 /* P3LocationAvailabilityCondition.swift in Sources */,
 				DF8C3DE01E00D14700EA9879 /* P3URLSessionTaskOperation.swift in Sources */,
 				DF8C3DE11E00D14700EA9879 /* P3NetworkOperation.swift in Sources */,
@@ -430,6 +452,8 @@
 				DFF2A3431D5B931F003493C6 /* EndpointType.swift in Sources */,
 				DFF2A3441D5B931F003493C6 /* HTTPMethod.swift in Sources */,
 				DFF2A3451D5B931F003493C6 /* P3ReachabilityCondition.swift in Sources */,
+				DF784EFB1F05E560008578D0 /* P3JSONResponseWrapper.swift in Sources */,
+				DF55E3471F05CDBD00AE7D2A /* P3ConsumeJSONModelOperation.swift in Sources */,
 				DFF2A3461D5B931F003493C6 /* P3LocationAvailabilityCondition.swift in Sources */,
 				DFF2A3471D5B931F003493C6 /* P3URLSessionTaskOperation.swift in Sources */,
 				DFF2A3481D5B931F003493C6 /* P3NetworkOperation.swift in Sources */,
