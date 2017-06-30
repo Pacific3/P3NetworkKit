@@ -1,11 +1,10 @@
-	//
+//
 //  P3GetCurrentLocationOperation.swift
 //  P3NetworkKit
 //
 //  Created by Oscar Swanros on 6/20/16.
 //  Copyright © 2016 Pacific3. All rights reserved.
 //
-
 
 import CoreLocation
 
