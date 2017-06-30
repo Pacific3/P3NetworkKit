@@ -25,7 +25,7 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
         return nil
     }
     
-    open var requestBody: [String:Encodable]? {
+    open var requestBody: [String:Any]? {
         return nil
     }
     
@@ -97,7 +97,7 @@ extension P3ConsumeJSONModelOperation {
         request.httpMethod = method.rawValue
         
         if let body = requestBody, [P3HTTPMethod.post, .put, .patch].contains(method) {
-            request.httpBody = try? JSONEncoder().encode(body)
+            request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
         }
         
         if let h = requestHeaders {
