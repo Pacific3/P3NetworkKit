@@ -44,9 +44,9 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
             
         default:
             error = NSError(error: P3ErrorSpecification(ec: P3OperationError.ConditionFailed), userInfo: [
-                P3OperationConditionKey as NSString: type(of: self).name as AnyObject,
-                type(of: self).locationServicesEnabledKey as NSString: enabled as AnyObject,
-                type(of: self).authorizationStatusKey as NSString: Int(actual.rawValue) as AnyObject
+                P3OperationConditionKey: type(of: self).name as AnyObject,
+                type(of: self).locationServicesEnabledKey: enabled as AnyObject,
+                type(of: self).authorizationStatusKey: Int(actual.rawValue) as AnyObject
                 ])
         }
         

@@ -31,8 +31,8 @@ public struct P3ReachabilityCondition: P3OperationCondition {
                 let error = NSError(error: P3ErrorSpecification(
                     ec: P3OperationError.ConditionFailed),
                                     userInfo: [
-                                        P3OperationConditionKey as NSString: type(of: self).name as AnyObject,
-                                        type(of: self).hostKey as NSString: self.host as AnyObject
+                                        P3OperationConditionKey: type(of: self).name,
+                                        type(of: self).hostKey: self.host as AnyObject
                     ]
                 )
                 
