@@ -97,7 +97,7 @@ extension P3ConsumeJSONModelOperation {
         request.httpMethod = method.rawValue
         
         if let body = requestBody, [P3HTTPMethod.post, .put, .patch].contains(method) {
-            request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+            request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         }
         
         if let h = requestHeaders {
