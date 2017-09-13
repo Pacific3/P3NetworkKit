@@ -13,35 +13,35 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
         case whenInUse
         case always
     }
-    
+
     static let locationServicesEnabledKey = "CLLocationServicesEnabled"
     static let authorizationStatusKey     = "CLAuthorizationStatus"
     public static var name                = "Location"
     public static var isMutuallyExclusive = false
-    
+
     let usage: Usage
-    
+
     public init(usage: Usage) {
         self.usage = usage
     }
-    
+
     public func dependencyForOperation(operation: P3Operation) -> Operation? {
         return P3RequestLocationPermissionOperation(usage: usage)
     }
-    
+
     public func evaluateForOperation(operation: Operation, completion: @escaping (P3OperationCompletionResult) -> Void) {
         let enabled = CLLocationManager.locationServicesEnabled()
         let actual = CLLocationManager.authorizationStatus()
-        
+
         var error: NSError?
-        
+
         switch (enabled, usage, actual) {
         case (true, _, .authorizedAlways):
             break
-            
+
         case (true, .whenInUse, .authorizedWhenInUse):
             break
-            
+
         default:
             error = NSError(error: P3ErrorSpecification(ec: P3OperationError.ConditionFailed), userInfo: [
                 P3OperationConditionKey: type(of: self).name as AnyObject,
@@ -49,7 +49,7 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
                 type(of: self).authorizationStatusKey: Int(actual.rawValue) as AnyObject
                 ])
         }
-        
+
         if let error = error {
             completion(.Failed(error))
         } else {
@@ -61,34 +61,34 @@ public struct P3LocationAvailabilityCondition: P3OperationCondition {
 private class P3RequestLocationPermissionOperation: P3Operation {
     let usage: P3LocationAvailabilityCondition.Usage
     var manager: CLLocationManager?
-    
+
     init(usage: P3LocationAvailabilityCondition.Usage) {
         self.usage = usage
-        
+
         super.init()
-        
+
         #if os(iOS) || os(tvOS)
             addCondition(condition: AlertPresentation())
         #endif
     }
-    
+
     fileprivate override func execute() {
         switch (CLLocationManager.authorizationStatus(), usage) {
         case (.notDetermined, _), (.authorizedWhenInUse, .always):
             p3_executeOnMainThread {
                 self.requestPermission()
             }
-            
+
         default:
             finish()
         }
-        
+
     }
-    
+
     private func requestPermission() {
         manager = CLLocationManager()
         manager?.delegate = self
-        
+
         #if os(iOS) || os(tvOS)
             _requestPermissioniOS()
         #else
@@ -113,7 +113,7 @@ private class P3RequestLocationPermissionOperation: P3Operation {
             case .whenInUse:
                 key = "NSLocationWhenInUseUsageDescription"
                 manager?.requestWhenInUseAuthorization()
-                
+
             case .always:
                 key = "NSLocationAlwaysAndWhenInUseUsageDescription"
                 #if os(iOS)
@@ -122,11 +122,11 @@ private class P3RequestLocationPermissionOperation: P3Operation {
                     fatalError("You can't request always on tvOS.")
                 #endif
             }
-            
+
             assert(Bundle.main.object(forInfoDictionaryKey: key) != nil, "Requesting location permission requires the \(key) in the Info.plist file!")
         }
     }
-    
+
 #endif
 
 extension P3RequestLocationPermissionOperation: CLLocationManagerDelegate {
