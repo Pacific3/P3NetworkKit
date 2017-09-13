@@ -13,6 +13,14 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
         return URLSession(configuration: URLSessionConfiguration.ephemeral)
     }()
     
+    open var dataDecodingStrategy: JSONDecoder.DataDecodingStrategy {
+        return .base64
+    }
+    
+    open var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy {
+        return .iso8601
+    }
+    
     open var endpoint: EndpointConvertible? {
         return nil
     }
@@ -50,7 +58,9 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
             }
             
             let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .secondsSince1970
+            decoder.dateDecodingStrategy = self.dateDecodingStrategy
+            decoder.dataDecodingStrategy = self.dataDecodingStrategy
+            
             do {
                 let inflated = try decoder.decode(T.self, from: data)
                 self.inflatedModel = inflated
