@@ -39,6 +39,8 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
     
     public var inflatedModel: T?
     
+    public var downloadedData: Data?
+    
     private var url: URL?
     
     public init(url: URL? = nil) {
@@ -52,7 +54,9 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
         let request = buildRequest()
         
         let task = session.dataTask(with: request) { [unowned self] (data, response, error) in
-            guard let data = data, error == nil else {
+            self.downloadedData = data
+            
+            guard let data = self.downloadedData, error == nil else {
                 self.finishWithError(error: error as NSError?)
                 return
             }
@@ -67,7 +71,7 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
                 self.didInflateModel(inflatedModel: inflated)
                 self.finish()
             } catch {
-                self.finishWithError(error: error as NSError?)
+                self.handleModelInflationError(error as NSError?)
             }
         }
         
@@ -80,6 +84,10 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
         #endif
         
         queue.addOperation(taskOperation)
+    }
+    
+    open func handleModelInflationError(_ error: NSError?) {
+        self.finishWithError(error: error as NSError?)
     }
     
     open func didInflateModel(inflatedModel: T) {
