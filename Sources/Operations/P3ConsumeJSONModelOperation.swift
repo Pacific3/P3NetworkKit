@@ -37,6 +37,10 @@ open class P3ConsumeJSONModelOperation<T: Codable>: P3Operation {
         return nil
     }
     
+    open var requestBodyData: Data? {
+        return nil
+    }
+    
     public var inflatedModel: T?
     
     public var downloadedData: Data?
@@ -114,12 +118,17 @@ extension P3ConsumeJSONModelOperation {
         var request = URLRequest(url: getRequestURL())
         request.httpMethod = method.rawValue
         
-        if let body = requestBody, [P3HTTPMethod.post, .put, .patch].contains(method) {
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: body)
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            } catch {
-                fatalError("Couldn't serialize request body into JSON.")
+        if [P3HTTPMethod.post, .put, .patch].contains(method)  {
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            if let body = requestBodyData {
+                request.httpBody = body
+            } else if let body = requestBody {
+                do {
+                    request.httpBody = try JSONSerialization.data(withJSONObject: body)
+                } catch {
+                    fatalError("Couldn't serialize request body into JSON.")
+                }
             }
         }
         
