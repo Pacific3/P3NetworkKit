@@ -20,18 +20,18 @@ public extension P3ImageView {
         }
     }
     
-    public func p3_cancelImageRequestOperation() {
+    func p3_cancelImageRequestOperation() {
         guard let id = downloadingOperationIdentifier else { return }
         
         P3ImageCache.sharedImageCache.cancelDownloadWithIdentifier(id: id)
         downloadingOperationIdentifier = nil
     }
     
-    public func p3_setImageWithURL(url: URL?) {
+    func p3_setImageWithURL(url: URL?) {
         p3_setImage(url: url, placeholder: nil)
     }
     
-    public func p3_setImage(url: URL?, placeholder: P3Image?) {
+    func p3_setImage(url: URL?, placeholder: P3Image?) {
         guard let url = url else {
             image = placeholder
             return

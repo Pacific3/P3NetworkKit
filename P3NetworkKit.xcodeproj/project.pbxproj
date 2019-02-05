@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CBFB3EF2209350000BB233B /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBFB3EE2209350000BB233B /* P3Foundation.framework */; };
+		2CBFB3F12209350000BB233B /* P3UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBFB3F02209350000BB233B /* P3UIKit.framework */; };
 		DF3DEAE31D5B96F90029D70B /* P3UIKitTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3DEAE11D5B96F90029D70B /* P3UIKitTV.framework */; };
 		DF4F24981EBE7AE600AB8FA7 /* P3ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F24971EBE7AE600AB8FA7 /* P3ImageCache.swift */; };
 		DF4F24991EBE7AE600AB8FA7 /* P3ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4F24971EBE7AE600AB8FA7 /* P3ImageCache.swift */; };
@@ -46,8 +48,6 @@
 		DF8C3DE61E00D14700EA9879 /* EndpointConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */; };
 		DF8C3DE71E00D14700EA9879 /* JSONParselable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C0801D17145500842E21 /* JSONParselable.swift */; };
 		DFAE163D1D170B350044B280 /* P3NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = DFAE163C1D170B350044B280 /* P3NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16451D170C9B0044B280 /* P3Foundation.framework */; };
-		DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFAE16461D170C9B0044B280 /* P3UIKit.framework */; };
 		DFCEC6BB1D18B0DC0086F125 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFCEC6BA1D18B0DC0086F125 /* CoreLocation.framework */; };
 		DFF2A33F1D5B9314003493C6 /* P3NetworkKitTV.h in Headers */ = {isa = PBXBuildFile; fileRef = DFF2A33D1D5B9314003493C6 /* P3NetworkKitTV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFF2A3431D5B931F003493C6 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF60C07E1D17140D00842E21 /* EndpointType.swift */; };
@@ -65,6 +65,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CBFB3EE2209350000BB233B /* P3Foundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = P3Foundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CBFB3F02209350000BB233B /* P3UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = P3UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF00CE361D170D77003C6E7E /* EndpointConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointConvertible.swift; sourceTree = "<group>"; };
 		DF0979AB1D18978400963A24 /* P3GetCurrentLocationOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3GetCurrentLocationOperation.swift; sourceTree = "<group>"; };
 		DF0979AD1D18996100963A24 /* P3LocationGeocodingOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P3LocationGeocodingOperation.swift; sourceTree = "<group>"; };
@@ -111,9 +113,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CBFB3EF2209350000BB233B /* P3Foundation.framework in Frameworks */,
+				2CBFB3F12209350000BB233B /* P3UIKit.framework in Frameworks */,
 				DFCEC6BB1D18B0DC0086F125 /* CoreLocation.framework in Frameworks */,
-				DFAE16471D170C9B0044B280 /* P3Foundation.framework in Frameworks */,
-				DFAE16481D170C9B0044B280 /* P3UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +228,8 @@
 		DFAE16441D170C9B0044B280 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2CBFB3EE2209350000BB233B /* P3Foundation.framework */,
+				2CBFB3F02209350000BB233B /* P3UIKit.framework */,
 				DF53427C1ECBB89E00E83B55 /* P3Foundation.framework */,
 				DF53427D1ECBB89E00E83B55 /* P3UIKitMac.framework */,
 				DF3DEAE11D5B96F90029D70B /* P3UIKitTV.framework */,
@@ -340,19 +344,21 @@
 				TargetAttributes = {
 					DF5342731ECBB88600E83B55 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 3BVQ3MVDQR;
-						LastSwiftMigration = 0900;
+						DevelopmentTeam = KLVVA7E4Z9;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					DFAE16381D170B350044B280 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = KLVVA7E4Z9;
 						DevelopmentTeamName = "OSCAR  CISNEROS LARIOS";
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					DFF2A33A1D5B9314003493C6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 3BVQ3MVDQR;
+						DevelopmentTeam = KLVVA7E4Z9;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -477,26 +483,21 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3BVQ3MVDQR;
+				DEVELOPMENT_TEAM = KLVVA7E4Z9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = P3NetworkKitMac/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = net.pacific3.P3NetworkKitMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -507,25 +508,20 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3BVQ3MVDQR;
+				DEVELOPMENT_TEAM = KLVVA7E4Z9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = P3NetworkKitMac/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = net.pacific3.P3NetworkKitMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -648,16 +644,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KLVVA7E4Z9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -665,7 +658,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -675,21 +668,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KLVVA7E4Z9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.Pacific3.P3NetworkKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -700,15 +689,10 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3BVQ3MVDQR;
+				DEVELOPMENT_TEAM = KLVVA7E4Z9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = P3NetworkKitTV/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -716,7 +700,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
@@ -729,15 +713,10 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3BVQ3MVDQR;
+				DEVELOPMENT_TEAM = KLVVA7E4Z9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = P3NetworkKitTV/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -745,7 +724,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
